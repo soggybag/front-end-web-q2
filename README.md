@@ -35,4 +35,55 @@ Use CSS for layout, motion and interaction.
 Students will logic and features to their web projects with JavaScript. 
 
 - JavaScript 
-- 
+- jQuery
+
+## Schedule 
+
+- Section 1
+    - Class 1 - 
+        - Designing with Sketch
+        - Using Templates 
+        - Using the Grid 
+    - Class 2 - 
+        - Fonts and type styles 
+        - Symbols 
+        - Drawing with Sketch 
+    - Class 3 -
+        - Feedback and review 
+        - User testing
+        - 
+- Section 2
+    - Class 4 - 
+        - CSS Flexbox grids
+        - Using type styles from sketch 
+        - 
+    - Class 5 - 
+        - 
+        - 
+        - 
+    - Class 6 -
+- Section 3
+    - Class 7 -
+        - 
+        - 
+        - 
+    - Class 8 - 
+        - 
+        - 
+        - 
+    - Class 9 - 
+        - 
+        - 
+        - 
+    - Class 10 - 
+        - 
+        - 
+        - 
+
+### Paradigms 
+
+33% Active
+33% Passive
+33% Expeditionary
+
+Three topics per class session 
