@@ -11,7 +11,7 @@ div.form-element {
 }
 
 input {
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
     margin: 20px;
     border: 1px solid #000;
     font-family: Helvetica;
@@ -21,11 +21,28 @@ input {
     border: 1px solid rgba(255,255,255,0.5);
     background-color: transparent;
     color: #eee;
+    outline: none;
+    background-color: rgba(255,255,255,0.05);
+}
+
+input:focus {
+    border-color: aquamarine;
 }
 
 input[type="submit"] {
+    background-color: rgba(255,255,255,0.35);
+    width: calc(100% - 42px);
+    border: none;
+}
+
+input[type="submit"]:hover {
     background-color: rgba(255,255,255,0.5);
 }
+
+input[type="submit"]:active {
+    background-color: rgba(255,255,255,0.75);
+}
+
 
 label {
     font-size: 20px;
@@ -51,3 +68,11 @@ input:focus + p {
     font-size: 14px;
 }
 */
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 100px auto;
+    background-color: aquamarine;
+}
