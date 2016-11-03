@@ -1,0 +1,53 @@
+body {
+    font-family: Helvetica;
+    background: #333;
+    color: #aaa;
+}
+
+div.form-element {
+    height: 40px;
+    margin: 40px auto 60px auto;
+    position: relative;
+}
+
+input {
+    width: calc(100% - 40px);
+    margin: 20px;
+    border: 1px solid #000;
+    font-family: Helvetica;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background-color: transparent;
+    color: #eee;
+}
+
+input[type="submit"] {
+    background-color: rgba(255,255,255,0.5);
+}
+
+label {
+    font-size: 20px;
+    font-family: Helvetica;
+    color: #777;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    padding: 10px;
+    margin: 1px;
+    transition: 400ms;
+}
+
+label.selected {
+    color: #666;
+    top: -36px;
+    /*font-size: 14px;*/
+}
+/*
+input:focus + p {
+    color: #ddd;
+    top: -36px;
+    font-size: 14px;
+}
+*/

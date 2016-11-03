@@ -1,0 +1,45 @@
+<!doctype html>
+  <html>
+      <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+          <div class="form-box">
+    <div class="form-element">
+        <input id="input-email" type="email">
+        <label for="input-email">Email</label>
+    </div>
+
+
+    <div class="form-element">
+        <input id="input-password" type="password">
+        <label for="input-password">Password</label>
+    </div>
+    
+    <div class="form-element">
+        <input type="submit">
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $("input").focus(function () {
+        $(this).siblings("label").addClass("selected");
+    });
+
+    $("input").blur(function () {
+        if ($(this).val() == "") {
+            $(this).siblings("label").removeClass("selected");
+        }
+    });
+</script>
+      </body>
+  </html>
+   
+
+
+

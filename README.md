@@ -1,10 +1,12 @@
 # Front end Web Q2
 
-Analyze design
-Study Color and typography
-Build web sites and web based apps
+## Objectives 
 
-##Section 1 - Design
+- Design beautiful things 
+- Build beautiful things from designs
+- Build grace interactions
+
+## Section 1 - Design
 
 Using Sketch students will construct designs for two projects
 
@@ -39,7 +41,7 @@ Students will logic and features to their web projects with JavaScript.
 
 ## Schedule 
 
-- Section 1
+- Section 1 - Design and Sketch
     - Class 1 - 
         - Designing with Sketch
         - Using Templates 
@@ -52,17 +54,20 @@ Students will logic and features to their web projects with JavaScript.
         - Feedback and review 
         - User testing
         - 
-- Section 2
+- Section 2 - HTML and CSS
     - Class 4 - 
         - CSS Flexbox grids
         - Using type styles from sketch 
         - 
     - Class 5 - 
-        - 
-        - 
+        - CSS Transition
+        - Custom Fonts and Font Awesome
         - 
     - Class 6 -
-- Section 3
+        - Sass
+        - 
+        - 
+- Section 3 - JavaScript and jQuery
     - Class 7 -
         - 
         - 
@@ -87,3 +92,53 @@ Students will logic and features to their web projects with JavaScript.
 33% Expeditionary
 
 Three topics per class session 
+
+
+
+
+
+
+
+
+
+
+# Possible class ideas session 2 or 3...
+
+Objectives 
+
+- Find a project 
+- Create design for your web site
+- Explore Sketch tools 
+
+Web design with Sketch 
+
+- http://www.creativebloq.com/web-design/how-mock-website-sketch-11513814
+
+Color Palette
+
+- Examples of monochrome, 2 color, three, and four color palettes
+- https://designschool.canva.com/blog/website-color-schemes/
+- http://www.awwwards.com/trendy-web-color-palettes-and-material-design-color-schemes-tools.html
+- http://www.dtelepathy.com/blog/inspiration/beautiful-color-palettes-for-your-next-web-project
+- https://coolors.co
+- http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF
+- http://www.websitebuilderexpert.com/how-to-choose-color-for-your-website/
+
+Font Pairs 
+
+- 
+
+Sketch Web Templates 
+
+- iOS Template 
+- web template 
+- iOS iTunes templates for app store
+
+Mood board 
+
+- http://www.creativebloq.com/graphic-design/mood-boards-812470
+
+
+Resources - 
+
+- https://designschool.canva.com
