@@ -10,16 +10,29 @@
 
 | # | time    | total   | Activity | Description |
 |---|---------|---------|----------|-------------|
-| 1 |  5 mins |  5 mins | TT       | Drawing with Sketch |
-| 2 | 10 mins | 15 mins | Work     | Design a login screen with Sketch |
-| 3 |  5 mins | 20 mins | TT       | Forms and form elements in HTML |
-| 4 | 10 mins | 40 mins | IDWYD    | Create a form |
-| 5 | 10 mins | 50 mins | Work     | Create your form |
-| 6 |  5 mins | 55 mins | TT       | Translating visuals into code with CSS |
-| 7 | 10 mins | 65 mins | IDWYD    | Translate example into CSS |
-| 8 | 10 mins | 75 mins | Break    | Relax and reflect... |
-| 9 | 20 mins | 85 mins | Work     | Translate your design into code |
+| 0 |  5 mins |  5 mins | TT       | Why design a Login? |
+| 1 |  5 mins | 10 mins | TT       | Drawing with Sketch |
+| 2 | 10 mins | 20 mins | Work     | Design a login screen with Sketch |
+| 3 |  5 mins | 25 mins | TT       | Forms and form elements in HTML |
+| 4 | 10 mins | 35 mins | IDWYD    | Create a form |
+| 5 | 10 mins | 45 mins | Work     | Create your form |
+| 6 |  5 mins | 50 mins | TT       | Translating visuals into code with CSS |
+| 7 | 10 mins | 60 mins | IDWYD    | Translate example into CSS |
+| 8 | 10 mins | 70 mins | Break    | Relax and reflect... |
+| 9 | 20 mins | 90 mins | Work     | Translate your design into code |
 
+
+### 0 - Why design a login screen?
+
+The Login screen is important. It is often the first part of your product that
+people interact with. It is also the first place where people get turned off
+by your product. The Login screen should look good, be inviting and easy to use. 
+
+You all have probably created projects with Login screens. Working the design of the 
+login screen has practical application. 
+
+The Login screen is smaller with fewer parts which makes it a good place to start
+working on your design skills. 
 
 ### 1 - Drawing with Sketch 
 
