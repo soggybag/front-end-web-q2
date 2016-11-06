@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <!-- Form elements should be contained in the form tag -->
+    <form>
+        <!-- Input elements display as inline so you will usually want to
+            store them in a block element. -->
+        <div>
+            <!-- The input element creates many different types of input.
+              Though usually it's a single line of text.
+              The label tag creates a block of text that acts a
+              label for an input. You must set the "for attribute" to
+            the "id" of the input to create an association! -->
+            <label for="name-input">Name</label>
+            <input id="name-input" type="text">
+        </div>
+
+        <div>
+           <!-- Use the password type for secure input. -->
+            <label for="password-input">Password</label>
+            <input id="password-input" type="password">
+        </div>
+
+        <div>
+            <!-- Input type=submit will submit the form. -->
+            <input type="submit">
+
+            <!-- Alternately use a button tag instead. -->
+            <!-- <button type="submit">Submit</button> -->
+        </div>
+    </form>
+</body>
+
+</html>

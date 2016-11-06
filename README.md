@@ -3,7 +3,7 @@
 ## Objectives 
 
 - Design beautiful things 
-- Build beautiful things from designs
+- Make things people want to use
 - Build grace interactions
 
 ## Section 1 - Design

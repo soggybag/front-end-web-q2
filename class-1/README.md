@@ -1,171 +1,112 @@
 # Front end Web Q2 class 1
 
-## Objectives 
+## Objectives
 
 - Translate visual design to code
 - Analyze design details
-- Design create a form
+- Design/create a form
 
-## Schedule 
+## Schedule
 
-| # | time    | total   | Activity | Description |
-|---|---------|---------|----------|-------------|
-| 0 |  5 mins |  5 mins | TT       | Why design a Login? |
-| 1 |  5 mins | 10 mins | TT       | Drawing with Sketch |
-| 2 | 10 mins | 20 mins | Work     | Design a login screen with Sketch |
-| 3 |  5 mins | 25 mins | TT       | Forms and form elements in HTML |
-| 4 | 10 mins | 35 mins | IDWYD    | Create a form |
-| 5 | 10 mins | 45 mins | Work     | Create your form |
-| 6 |  5 mins | 50 mins | TT       | Translating visuals into code with CSS |
-| 7 | 10 mins | 60 mins | IDWYD    | Translate example into CSS |
-| 8 | 10 mins | 70 mins | Break    | Relax and reflect... |
-| 9 | 20 mins | 90 mins | Work     | Translate your design into code |
+| # | time    |    total | Activity | Description |
+|---|---------|----------|----------|-------------|
+| 0 |  5 mins |   5 mins | TT       | Why design a Login? |
+| 1 |  5 mins |  10 mins | Search   | Take a look at some login screens |
+| 2 | 20 mins |  30 mins | Work     | Design a login screen with Sketch |
+| 3 |  5 mins |  35 mins | TT       | Forms and form elements in HTML |
+| 4 | 10 mins |  45 mins | IDWYD    | Create a form |
+| 5 | 10 mins |  55 mins | Break    | Relax and reflect... |
+| 6 | 10 mins |  65 mins | Work     | Create your form |
+| 7 |  5 mins |  70 mins | TT       | Translating visuals into code with CSS |
+| 8 | 10 mins |  80 mins | IDWYD    | Translate example into CSS |
+| 9 | 20 mins | 100 mins | Work     | Translate your design into code |
 
 
 ### 0 - Why design a login screen?
 
 The Login screen is important. It is often the first part of your product that
 people interact with. It is also the first place where people get turned off
-by your product. The Login screen should look good, be inviting and easy to use. 
+by your product. The Login screen should look good, be inviting and easy to use.
 
-You all have probably created projects with Login screens. Working the design of the 
-login screen has practical application. 
+You all have probably created projects with Login screens. Working the design of
+the login screen has practical application.
 
-The Login screen is smaller with fewer parts which makes it a good place to start
-working on your design skills. 
+The Login screen is smaller with fewer parts which makes it a good place to
+start working on your design skills.
 
-### 1 - Drawing with Sketch 
+### 1 - Take a look at some login screens
 
-Use the following tools in Sketch to design a Login screen. 
-You will be designing for mobile. 
+Take a look at the inspirations in the Pinterest board below to get some ideas.
 
-- Artboard: Design everything in an artboard
-    - Use an artboard sized for mobile. 
-- Design UI elements with clear intent
-    - Elements need labels.
-    - The look of an input should invite a user to enter text.
-- Use design
-    - Make fonts ledgible.
-    - Use color and style to signal intent.
-    - Use space to make things look better. 
-- Get creative 
-    - Use color.
-    - Add a background image. 
+Some inspiration:
+
+- https://www.pinterest.com/search/pins/?q=mobile%2Clogin
+- https://dribbble.com/tags/mobile
+- https://www.behance.net/search?content=projects&sort=appreciations&time=week&search=mobile%20login
 
 ### 2 - Design a login screen with Sketch
 
-Use the drawing tools in sketch to make design a login screen. 
-You can think about designing this for one of your existing projects, a future project, or a fictitious project. 
+Use the drawing tools in sketch to make design a login screen.
+You can think about designing this for one of your existing projects, a future project, or a fictitious project.
 
 Your login screen should be designed for Mobile.
 It should provide fields for inputing: user name, and password.
 
-Take a look at the inspirations in the Pinterest board below to get some ideas. 
+Use the following tools in Sketch to design a Login screen.
+You will be designing for mobile.
 
-Some inspirations:
-
-- https://www.pinterest.com/mitchellhudson/login-screen-design/
+- Artboard: Design everything in an artboard
+    - Use an artboard sized for mobile.
+- Design UI elements with clear intent
+    - Elements need labels.
+    - The look of an input should invite a user to enter text.
+- Use design
+    - Make fonts legible.
+    - Use color and style to signal intent.
+    - Use space to make things look better.
+- Get creative
+    - Use color.
+    - Add a background image.
 
 Challenges
 
-- Also design a Sign up screen. 
+- Also design a Sign up screen.
 - Consider motion and interaction that might occur in your login screen.
 
 ### 3 - Forms and form elements in HTML
 
-Forms are used to collect user input. 
-Forms contain several different input types, these include: 
+Take a look at this article for some info on getting started with a login.
 
-- Text input
-    - Radio Button
-    - Checkbox
-    - Button
-        - Submit
-        - Reset
-- Text area
-- Select
-    - Option
-- Button
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/My_first_HTML_form
 
-__Input:__
+Use the sample code in this article as a starting place for your login.
+Be sure that your login includes the following elements:
 
-The input is probably the most inportant input element. 
-With it you can create a wide range of form input types: 
+- Input username/email
+- Input password
+- Submit button
+- Sign up link or button
 
-Single line of text input: 
-
-`<input type="text">`
-
-- button
-- checkbox
-- color
-- date 
-- datetime-local
-- email
-- file
-- hidden
-- image
-- month
-- number
-- password
-- radio
-- range
-- reset
-- search
-- submit
-- tel
-- text
-- time 
-- url
-- week
-
-__Textarea:__
-
-Creates a multiline input box.
-
-`<textarea></textarea>`
-
-__Select menu:__
-
-Creates a standard system menu. Use the `option` tag to create menu items. 
-
-```
-<select>
-    <option>Choice 1</option>
-    <option>Choice 2</option>
-    <option>Choice 3</option>
-    ...
-</select>
-```
-__Button:__
-
-Creates a button. Note! that input can also be used to create buttons! 
-
-`<button>Sign up</button>`
-
-__Labels:__
-
-The `<label>` tag is meant especially for creating labels for form elements. 
-Use the for attribute to associate a label with an input. 
+Be sure all of your inputs and buttons are labeled well!
 
 ### 4 - Create a form
 
 Create a form...
 
-### 5 - Create your form! 
+### 5 - Create your form!
 
-Create your form using markup. 
-Don't think about styles too closely at this point. 
-What's most important is creating the structure with the understanding that the 
-style will be applied through CSS. 
+Write your form in an HTML file.
+Don't think about styles too closely at this point.
+What's most important is creating the structure with the understanding that the
+style will be applied through CSS.
 
 ### 6 - Translating visuals into code with CSS
 
-- Review styles that can be applied to forms. 
-- Review the box model. 
-- Using padding and margin. 
-- Border styles. 
-- Set font styles. 
+- Review styles that can be applied to forms.
+- Review the box model.
+- Using padding and margin.
+- Border styles.
+- Set font styles.
 
 ### 7 - Translate example into CSS
 
@@ -173,38 +114,27 @@ Apply styles to the example form.
 
 ### 8 - Relax and reflect...
 
-Take a break. 
+Take a break.
 
 ### 9 - Translate your design into code
 
-Use the ideas from class to apply styles to your form. 
-The goal is to create the form you designed at the beginning of class with Sketch. 
+Use the ideas from class to apply styles to your form.
+The goal is to create the form you designed at the beginning of class with Sketch.
 
-## Challenges 
+## Challenges
 
-- Continue working and improving your Login form. 
-- Create another form. Yes, really do it all again! The best way to learn and expand your skill is practice. 
-    - Apply styles to a form you created for a project you are working on. 
-- Create a Sign Up form. Similar to the Login a Sign Up form will have some differences. 
+- Continue working and improving your Login form.
+    - Think about animation and user interaction that might be apart of your form.
+- Create another form. Yes, really do it all again! The best way to learn and expand your skill is practice.
+    - Apply styles to a form you created for a project you are working on.
+- Create a Sign Up form. Similar to the Login a Sign Up form will have some differences.
     - Mock up the new Sign Up form with Sketch first!
-    - Imagine the Login and Sign Up form and how it will display and how your app will transition to it from the Login. 
-- Find some Login and Sign Up forms on Pinterest that you like try and recreate one of these. 
+    - Imagine the Login and Sign Up form and how it will display and how your app will transition to it from the Login.
+- Find some Login and Sign Up forms on Pinterest that you like try and recreate one of these.
 
-## Resources 
+## Resources
 
 - https://www.pinterest.com/search/pins/?q=login%2C%20screen
 - https://medium.freecodecamp.com/leveling-up-css-44b5045a2667#.m8j62vs60
 - https://medium.com/@WebdesignerDepot/20-essential-css-tricks-every-designer-should-know-bccf0ca81b1c#.z8r8az65e
 - http://tympanus.net/codrops/2012/10/16/custom-login-form-styling/
-
-
-
-
-
-
-
-
-
-
-
-

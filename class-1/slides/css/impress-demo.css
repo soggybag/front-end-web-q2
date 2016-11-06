@@ -83,6 +83,8 @@ table {
 */
 body {
     font-family: 'PT Sans', sans-serif;
+    color: #fff;
+    
     min-height: 740px;
 
     background: rgb(215, 215, 215);
@@ -92,6 +94,19 @@ body {
     background:     -ms-radial-gradient(rgb(70, 159, 240), rgb(2, 47, 80));
     background:      -o-radial-gradient(rgb(70, 159, 240), rgb(2, 47, 80));
     background:         radial-gradient(rgb(70, 159, 240), rgb(2, 47, 80));
+}
+
+ul, ol {
+    list-style: disc;
+}
+
+#why-list li {
+    opacity: 0;
+    transition: 1000ms;
+}
+
+#why-list.present li {
+    opacity: 1;
 }
 
 /*
