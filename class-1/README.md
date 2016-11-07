@@ -15,14 +15,14 @@
 | 2 | 20 mins |  30 mins | Work     | Design a login screen with Sketch |
 | 3 |  5 mins |  35 mins | TT       | Forms and form elements in HTML |
 | 4 | 10 mins |  45 mins | IDWYD    | Create a form |
-| 5 | 10 mins |  55 mins | Break    | Relax and reflect... |
-| 6 | 10 mins |  65 mins | Work     | Create your form |
-| 7 |  5 mins |  70 mins | TT       | Translating visuals into code with CSS |
-| 8 | 10 mins |  80 mins | IDWYD    | Translate example into CSS |
-| 9 | 20 mins | 100 mins | Work     | Translate your design into code |
+| - | 10 mins |  55 mins | Break    | Relax and reflect... |
+| 5 | 10 mins |  65 mins | Work     | Create your form |
+| 6 |  5 mins |  70 mins | TT       | Translating visuals into code with CSS |
+| 7 | 10 mins |  80 mins | IDWYD    | Translate example into CSS |
+| 8 | 20 mins | 100 mins | Work     | Translate your design into code |
 
 
-### 0 - Why design a login screen?
+### 0 - Why design a login screen? (5 mins)
 
 The Login screen is important. It is often the first part of your product that
 people interact with. It is also the first place where people get turned off
@@ -34,7 +34,7 @@ the login screen has practical application.
 The Login screen is smaller with fewer parts which makes it a good place to
 start working on your design skills.
 
-### 1 - Take a look at some login screens
+### 1 - Take a look at some login screens (5 mins)
 
 Take a look at the inspirations in the Pinterest board below to get some ideas.
 
@@ -44,7 +44,7 @@ Some inspiration:
 - https://dribbble.com/tags/mobile
 - https://www.behance.net/search?content=projects&sort=appreciations&time=week&search=mobile%20login
 
-### 2 - Design a login screen with Sketch
+### 2 - Design a login screen with Sketch (20 mins)
 
 Use the drawing tools in sketch to make design a login screen.
 You can think about designing this for one of your existing projects, a future project, or a fictitious project.
@@ -73,7 +73,7 @@ Challenges
 - Also design a Sign up screen.
 - Consider motion and interaction that might occur in your login screen.
 
-### 3 - Forms and form elements in HTML
+### 3 - Forms and form elements in HTML (5 mins)
 
 Take a look at this article for some info on getting started with a login.
 
@@ -89,18 +89,22 @@ Be sure that your login includes the following elements:
 
 Be sure all of your inputs and buttons are labeled well!
 
-### 4 - Create a form
+### 4 - Create a form (10 mins)
 
 Create a form...
 
-### 5 - Create your form!
+### Break - Relax and reflect...
+
+Take a break.
+
+### 5 - Create your form! (10 mins)
 
 Write your form in an HTML file.
 Don't think about styles too closely at this point.
 What's most important is creating the structure with the understanding that the
 style will be applied through CSS.
 
-### 6 - Translating visuals into code with CSS
+### 6 - Translating visuals into code with CSS (5 mins)
 
 - Review styles that can be applied to forms.
 - Review the box model.
@@ -108,15 +112,11 @@ style will be applied through CSS.
 - Border styles.
 - Set font styles.
 
-### 7 - Translate example into CSS
+### 7 - Translate example into CSS (10 mins)
 
 Apply styles to the example form.
 
-### 8 - Relax and reflect...
-
-Take a break.
-
-### 9 - Translate your design into code
+### 8 - Translate your design into code (20 mins)
 
 Use the ideas from class to apply styles to your form.
 The goal is to create the form you designed at the beginning of class with Sketch.
