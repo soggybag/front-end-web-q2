@@ -8,18 +8,52 @@
 
 ## Schedule
 
-| # | time     |    total | Activity   | Description |
-|---|----------|----------|------------|-------------|
-| 1 |  5 mins  |   5 mins | TT         | The Box Model |
-| 2 |  10 mins |  15 mins | I do We do | Style an Input |
-| 2 |  15 mins |  25 mins | work       | Continue styling your Login form |
-| 4 | 10 mins |  45 mins | IDWYD    | Create a form |
-| 5 | 10 mins |  65 mins | Work     | Create your form |
-| 6 |  5 mins |  70 mins | TT       | Translating visuals into code with CSS |
-| 7 | 10 mins |  80 mins | IDWYD    | Translate example into CSS |
-| 8 | 30 mins | 110 mins | Work     | Translate your design into code |
+| # | time    |    total | Activity   | Description |
+|---|---------|----------|------------|-------------|
+| 1 |  5 mins |   5 mins | TT         | Marking up your Login form |
+| 2 | 15 mins |  20 mins | Explore    | Forms and form elements in HTML |
+| 3 |  5 mins |  25 mins | I do We do | The Box Model |
+| 4 | 20 mins |  45 mins | Explore    | Style Inputs and buttons |
+| 5 | 10 mins |  55 mins | Break      | Meditate on CSS |
+| 6 | 30 mins |  85 mins | Explore    | Translate your design into code |
+| 7 | 25 mins | 110 mins | Explore    | Use :focus, :hover, and transition |
 
-### The box model
+### 1 - Marking up your Login form (Talk 5 min)
+
+HTML provides the For marking up forms. Forms are collections of form elements.
+Form elements are things like input fields, radio buttons, check boxes.
+
+Your login form will probably have two inputs: username, and password, and
+a button to submit the form.
+
+You may also have a link to a Sign up form.
+
+### 2 - Forms and form elements in HTML (15 mins)
+
+Take a look at this article for some info on getting started with a login.
+
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/My_first_HTML_form
+
+Use the sample code in this article as a starting place for your login.
+Be sure that your login includes the following elements:
+
+- Input username/email
+- Input password
+- Submit button
+- Sign up link or button
+
+Notes:
+
+- Be sure all of your inputs and buttons are labeled well!
+- Use the label tag, take a look at it's "for" attribute.
+- Look into the attributes of the input tag.
+  - email
+  - password
+  - text
+- The input, label, and button display inline by default. You may want to
+place these inside of block element like a p or div.
+
+### 3 - The box model (5 mins)
 
 Every element in HTML is a box. Think of each box as a rectangle.
 The box model describes the space a rectangle fills.
@@ -29,22 +63,25 @@ The box model describes the space a rectangle fills.
 - border
 - margin
 
-### I do we do - Style inputs
-
 Use the box model to design an input field using the CSS properties above.
 
 - http://codepen.io/soggybag/pen/bBNgmR
 
-Students follow up by styling the other inputs. Feel free to talk with and
-discuss this with your neighbors.
+### 4 - Style Inputs and buttons (20 mins)
 
-### Continue styling your Login form
+Style your form. Start by using the box model to layout and style input Elements
+and buttons.
 
-...
+### 5 - Meditate on CSS (10 mins)
 
-### Break
+Break...
 
-...
+### 6 - Translate your design into code (30 mins)
+
+Your design may use any one of the following:
+
+- CSS Gradients
+- Background Images
 
 ### Investigate and apply - :focus
 
@@ -59,91 +96,6 @@ Try the following:
 
 - Change the background color of the input on :focus
 - Change the border color
-
-### Demo - CSS Transform
-
-Transform gives you control over:
-
-- position
-- scale
-- rotation
-
-Try it for yourself: http://codepen.io/soggybag/pen/qqERyz
-
-__Challenges__
-
-Using CSS Transforms try the following on your Login form:  
-
-- Move an element on the screen with translate().
-  - Apply a translate on :active on the button which moves the button 2px down.
-  - Apply a translate to the label to move it up when the input has focus.
-- Scale an element on the screen with scale().
-  - Scale the button smaller when it is active.
-  - Scale the input larger when it has focus.
-- Rotate an element on the screen with rotate().
-  - Do something crazy and unexpected with rotate()...
-
-## Resources
-
-
-
-
-
-
-
-
-
-
-
-### 3 - Forms and form elements in HTML (5 mins)
-
-Take a look at this article for some info on getting started with a login.
-
-- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/My_first_HTML_form
-
-Use the sample code in this article as a starting place for your login.
-Be sure that your login includes the following elements:
-
-- Input username/email
-- Input password
-- Submit button
-- Sign up link or button
-
-Be sure all of your inputs and buttons are labeled well!
-
-
-
-### 4 - Create a form (10 mins)
-
-Create a form...
-
-### Break - Relax and reflect...
-
-Take a break.
-
-### 5 - Create your form! (10 mins)
-
-Write your form in an HTML file.
-Don't think about styles too closely at this point.
-What's most important is creating the structure with the understanding that the
-style will be applied through CSS.
-
-### 6 - Translating visuals into code with CSS (5 mins)
-
-- Review styles that can be applied to forms.
-- Review the box model.
-- Using padding and margin.
-- Border styles.
-- Set font styles.
-
-### 7 - Translate example into CSS (10 mins)
-
-Apply styles to the example form.
-
-### 8 - Translate your design into code (20 mins)
-
-Use the ideas from class to apply styles to your form.
-The goal is to create the form you designed at the beginning of class with Sketch.
 
 ## Challenges
 
