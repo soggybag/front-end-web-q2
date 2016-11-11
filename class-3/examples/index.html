@@ -1,0 +1,101 @@
+<style>
+
+  .wrapper {
+    width: 400px;
+    margin: auto;
+  }
+
+
+
+  /* ******************************* */
+  /* Set up a couple boxes that animate */
+
+  /* This box acts as a container */
+  .ab {
+    /* Set the width and height */
+    width: 100px;
+    height: 100px;
+    /* Set the position to relative
+    !important this sets the position context for descendants! */
+    position: relative;
+    /* Hides everything that falls outside the box */
+    overflow: hidden;
+    /* Put a border on it */
+    border: 1px solid #000;
+  }
+
+  /* These two boxes are stacked vertically inside of .container */
+  .a, .b {
+    /* Set the height and width */
+    width: 100px;
+    height: 100px;
+    /* use line-height to center single line of text vertically */
+    line-height: 100px;
+    /* Center text horizontally */
+    text-align: center;
+  }
+
+  /* This contains a and b */
+  .content {
+    /* Absolute  */
+    position: absolute;
+    top: 0;
+    transition: 400ms;
+  }
+
+  .ab:hover > .content {
+    transform: translate3d(0, -100px, 0);
+  }
+
+  .input {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    transition: 200ms;
+  }
+
+  .input:focus {
+    transform: scale(1.25);
+  }
+
+  .submit {
+    border: 1px solid black;
+    padding: 10px;
+    transition: 100ms;
+  }
+
+  .submit:active {
+    background-color: red;
+    transform: translate(0, 2px);
+  }
+</style>
+
+
+<div class="wrapper">
+  <div class="ab">
+    <div class="content">
+      <div class="a">A</div>
+      <div class="b">B</div>
+    </div>
+  </div>
+
+  <form action="#" method="post">
+    <p>
+      <!-- required works in Chrome, doesn't work in Safari-->
+      <!-- autofocus gives an element focus when the page loads -->
+      <input autofocus required class="input" type="email">
+    </p>
+    <p>
+      <input required class="input" type="password">
+    </p>
+
+    <p>
+      <!-- required and pattern works in Chrome, doesn't work in Safari -->
+      <input required class="input" pattern="https?://.+">
+    </p>
+
+    <p>
+      <button class="submit" type="submit">Submit</button>
+    </p>
+  </form>
+</div>
