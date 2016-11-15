@@ -68,6 +68,32 @@
     background-color: red;
     transform: translate(0, 2px);
   }
+    
+    
+    /* Slider */
+    .container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        overflow: hidden;
+    }
+    
+    .slider {
+        position: absolute;
+        width: 600px;
+        height: 300px;
+        left: 0;
+        top: 0;
+        transition: 400ms;
+    }
+    
+    .content-left, .content-right {
+        width: 300px;
+        float: left;
+    }
+    
+    
 </style>
 
 
@@ -97,5 +123,20 @@
     <p>
       <button class="submit" type="submit">Submit</button>
     </p>
+    
+    <div class="container">
+        <div class="slider">
+            <div class="content-left">
+                <h1>Left</h1>
+                <p><a href="#">Next</a></p>
+            </div>
+            <div class="content-right">
+                <h1>Left</h1>
+                <p><a href="#">Next</a></p>
+            </div>
+        </div>
+    </div>
+    
+    
   </form>
 </div>
