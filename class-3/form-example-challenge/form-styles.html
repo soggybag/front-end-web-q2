@@ -37,7 +37,7 @@
     
     
     <div id="signup-form">
-       <form >
+       <form id="sign-up-form">
             <div class="form-element">
                 <input id="input-email" type="email">
                 <label for="input-email">Email</label>
@@ -79,6 +79,11 @@
             } else {
                 console.log("That email is NOT valid :(");
             }
+        });
+        
+        $("#sign-up-form").submit(function(event){
+            event.preventDefault();
+            // Challenge validate the sign up form...
         });
         
         // Handles input element gaining focus

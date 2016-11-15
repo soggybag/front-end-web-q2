@@ -78,6 +78,7 @@ label.selected {
     top: -20px;
     /*font-size: 14px;*/
 }
+
 /*
 input:focus + p {
     color: #ddd;
@@ -94,11 +95,13 @@ input:focus + p {
     background-color: aquamarine;
 }
 
+
 #login-form, #signup-form {
     float: left;
     bottom: 40px;
     width: 50%;
 }
+
 
 .signup {
     text-align: center;
