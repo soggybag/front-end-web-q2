@@ -140,7 +140,9 @@ Transform and position example...
 
 ### 8 - Challenge 
 
-### 5 - CSS Transform
+Swap the login for the sign up screen with an animated transition...
+
+### CSS Transform
 
 CSS transform applies translation, scale, rotation, and skew to an element. 
 
