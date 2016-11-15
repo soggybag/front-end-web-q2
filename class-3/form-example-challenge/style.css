@@ -1,0 +1,123 @@
+/* Set some default styles for the document */
+body, html {
+    font-family: Helvetica;
+    background: #333;
+    color: #aaa;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/* This is the div that sirrounds each of the inputs. */
+div.form-element {
+    height: 40px;
+    margin: 40px auto 60px auto;
+    position: relative; /* The labels will be position absolute. Set this to relative to give them context. */
+}
+
+/* Inputs */
+input {
+    /* Using borer-box here makes only the margin add to the width of the box. */
+    box-sizing: border-box;
+    /* Set the width to the 100% less the margin. We only have to subtract the margin because we used border-box! */
+    width: calc(100% - 40px);
+    /* 20px margin on all 4 sides. */
+    margin: 20px;
+    
+    border: 1px solid #000;
+    font-family: Helvetica;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 25px; /* Round the corners of the box. */
+    border: 1px solid rgba(255,255,255,0.5);
+    background-color: transparent;
+    color: #eee;
+    outline: none; /* remove the default focus outline. */
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* Styles applied when an input has focus. */
+input:focus {
+    border-color: aquamarine;
+}
+
+/* The submit button is an input so we need to override some of the properties. */
+input[type="submit"] {
+    background-color: rgba(255,255,255,0.35);
+    width: calc(100% - 40px);
+    border: none;
+}
+
+/* The submit button should have a hover. */
+input[type="submit"]:hover {
+    background-color: rgba(255,255,255,0.5);
+}
+
+/* The submit button should also have an active. */
+input[type="submit"]:active {
+    background-color: rgba(255,255,255,0.75);
+}
+
+/* Style the two labels. */
+label {
+    font-size: 20px;
+    font-family: Helvetica;
+    color: #777;
+    position: absolute; /* Use absolute position so we can move the labels with an animation. */
+    left: 30px;
+    top: 20px;
+    padding: 10px;
+    margin: 1px;
+    transition: 400ms; /* Set the time for the animation. */
+}
+
+label.selected {
+    color: aquamarine;
+    opacity: 0.35;
+    top: -20px;
+    /*font-size: 14px;*/
+}
+/*
+input:focus + p {
+    color: #ddd;
+    top: -36px;
+    font-size: 14px;
+}
+*/
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 100px auto;
+    background-color: aquamarine;
+}
+
+#login-form, #signup-form {
+    float: left;
+    bottom: 40px;
+    width: 50%;
+}
+
+.signup {
+    text-align: center;
+}
+
+
+.forms-container {
+    width: 200%;
+    position: absolute;
+    transition: 400ms;
+}
+
+
+
+
+
+
+
+
+
+
+

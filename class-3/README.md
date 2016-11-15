@@ -136,7 +136,9 @@ different properties and experiment with new ideas.
 
 ### 7 - Swapping Login for Sign up
 
+Transform and position example...
 
+### 8 - Challenge 
 
 ### 5 - CSS Transform
 
