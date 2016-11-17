@@ -1,0 +1,125 @@
+
+<style>
+    body, html {
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+    }
+    
+    /* In this example container will be a smaller box in the center of the screen. */
+    /* This wrapper will fill the screen and provide perspective context for 3d transforms. */
+    #content-wrapper {
+        width: 100%;         /* Fill the screen */
+        height: 100%; 
+        position: relative;  /* Declare this as position context for nested views. */
+        
+        /* Use persepctive to create a 3d look. */
+        perspective: 800px;
+    }
+    
+    /* This box will contain two content boxes, and flip over using rotateY. */
+    #container {
+        width: 400px;         /* Set the width to the size of the content boxes. */
+        height: 500px;
+        position: absolute;   /* Container will move so make it position absolute. */
+        transition: 400ms;    /* Animate changes. */
+        
+        left: 50%;            /* Move this to middle of the window. */
+        top: 50%;             /* These values in conjunction with -50% in tranlate3d centers this in the window. */
+        
+        transform: translate3d(-50%, -50%, 0) rotateY(0);/* Set the rotation y to 0 */
+        transform-style: preserve-3d; /* !important! Must use this to make children use 3d transforms. */
+    }
+    
+    /* Use this style to move #container to the left. */ 
+    #container.show-signup {
+        /* Here we are flipping the container view to reveal the new view. */
+        /* You need to set translate3d again here since you are overwriting transform in the rule above. */
+        transform: translate3d(-50%, -50%, 0) rotateY(180deg);
+    }
+    
+    #one, #two {
+        width: 100%; /* These views need to fill the space. */
+        height: 100%;
+        margin: auto;
+        
+        /* Stack these two view on top of each other. */
+        position: absolute;
+        left: 0;
+        top: 0;
+        
+        /* We want these views to be invisible from behind. */
+        -webkit-backface-visibility: hidden;   
+    }
+    
+    #one {
+        background-color: cadetblue;
+        transform: translate3d(0, 0, 0) rotateY(0); /* We need this to make this render correctly at the beginning. */
+    }
+    
+    #two {
+        background-color: coral;
+        transform: translate3d(0, 0, 0) rotateY(180deg); /* Flip this view over it will face the back of the container. */
+    }
+    
+    .box {
+        width: 400px;    
+        height: 500px;
+        /* No need for margin here. */
+        position: relative; /* I positioned the link with absolute, this gives us context. */
+    }
+    
+    /* Some styles for the Login and Sign up links */
+    .nav-link {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1em;
+        text-align: center;
+        text-decoration: none;
+        display: block;position: absolute;
+        background-color: rgba(255, 255, 255, 0.5);
+        bottom: 0;
+    }
+    
+</style>   
+
+
+<div id="content-wrapper">
+    <div id="container">
+        <div id="one">
+            <div class="box">
+                <!-- add a link -->
+                <a id="login-link" class="nav-link" href="#">Login</a>
+            </div>
+        </div>
+
+        <div id="two">
+            <div class="box">
+                <!-- add a link -->
+                <a id="signup-link" class="nav-link" href="#">Sign up</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var container = document.getElementById("container");
+    var loginLink = document.getElementById("login-link");
+    var signupLink = document.getElementById("signup-link");
+    
+    loginLink.onclick = function(event) {
+        event.preventDefault();
+        container.classList.add("show-signup");
+    }
+    
+    signupLink.onclick = function(event) {
+        event.preventDefault();
+        container.classList.remove("show-signup");
+    }
+</script>
+
+
+
+
+

@@ -1,0 +1,49 @@
+
+<style>
+    body, html {
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+    }
+    #container {
+        width: 200%;
+        height: 100%;
+    }
+    
+    #one, #two {
+        width: 50%;
+        height: 100%;
+        margin: auto;
+        float: left;
+    }
+    
+    #one {
+        background-color: cadetblue;
+    }
+    
+    #two {
+        background-color: coral;
+    }
+    
+    /* Put some content in the center of #one and #two. */
+    .box {
+        width: 400px;    /* Give this a width. */
+        height: 500px;
+        margin: auto;    /* Center this horizontally. */
+        margin-top: 100px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+</style>   
+
+<div id="container">
+   
+    <div id="one">
+        <!-- Add some content -->
+        <div class="box"></div>
+    </div>
+    
+    <div id="two">
+        <!-- add come content -->
+        <div class="box"></div>
+    </div>
+</div>

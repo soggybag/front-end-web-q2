@@ -50,6 +50,8 @@
             } else {
                 console.log("That email is NOT valid :(");
             }
+            
+            
         });
         
         // Handles input element gaining focus
@@ -74,7 +76,10 @@
         // Fires each time the text in the input is changed. 
         $('#input-email').on('input', function(){
             console.log("input email:"+$(this).val());
+            
         });
+        
+        
         
         // Validates an email using regex.
         function isValidEmailAddress(emailAddress) {

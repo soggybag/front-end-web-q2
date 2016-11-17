@@ -80,7 +80,7 @@ label.selected {
 }
 
 /*
-input:focus + p {
+input:focus + label {
     color: #ddd;
     top: -36px;
     font-size: 14px;

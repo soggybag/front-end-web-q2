@@ -104,4 +104,39 @@
       <div class="b">B</div>
     </div>
   </div>
+
+  <form action="#" method="post">
+    <p>
+      <!-- required works in Chrome, doesn't work in Safari-->
+      <!-- autofocus gives an element focus when the page loads -->
+      <input autofocus required class="input" type="email">
+    </p>
+    <p>
+      <input required class="input" type="password">
+    </p>
+
+    <p>
+      <!-- required and pattern works in Chrome, doesn't work in Safari -->
+      <input required class="input" pattern="https?://.+">
+    </p>
+
+    <p>
+      <button class="submit" type="submit">Submit</button>
+    </p>
+    
+    <div class="container">
+        <div class="slider">
+            <div class="content-left">
+                <h1>Left</h1>
+                <p><a href="#">Next</a></p>
+            </div>
+            <div class="content-right">
+                <h1>Left</h1>
+                <p><a href="#">Next</a></p>
+            </div>
+        </div>
+    </div>
+    
+    
+  </form>
 </div>
