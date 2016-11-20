@@ -85,7 +85,7 @@
         transition: 200ms;
     }
     
-    .tile:hover .flip {
+    .tile.up .flip {
         top: -90px;
     }
     
@@ -239,6 +239,19 @@
     var container = document.getElementById("container");
     var loginLink = document.getElementById("login-link");
     var signupLink = document.getElementById("signup-link");
+    var tiles = document.getElementsByClassName("tile");
+    
+    var colorArray = ["red", "green", "blue", "yellow", "orange", "cyan", "magenta", "violet"];
+    
+    for (var i in tiles) {
+        tiles[i].onclick = function(event) {
+            if (this.classList.contains("up")) {
+                this.classList.remove("up");
+            } else {
+                this.classList.add("up");
+            }
+        }
+    }
     
     loginLink.onclick = function(event) {
         event.preventDefault();
@@ -249,6 +262,8 @@
         event.preventDefault();
         container.classList.remove("show-signup");
     }
+    
+    
 </script>
 
 

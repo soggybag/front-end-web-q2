@@ -1,0 +1,160 @@
+<!-- 
+
+    This is a starter project for a simple weather app. 
+    
+    TODO:
+    
+    Conversions: 
+    Temperatures are provided in Kelvin you will need to convert these to celsius or fahrenheit. 
+    
+    Styles: 
+    add CSS to style all of the elements.
+    
+    Icons: 
+    The weather service provides an "icon" string 
+    which represents an image the current weather. You 
+    need to make an image for each possible weather situation. 
+    
+    Challenges:
+    
+    1) Show a 5 day forecast.
+    2) Show the 5 day forecast in another view and allow us to switch views with a transition.  
+
+-->
+
+<!-- Some elements with ids you can display your weather data here. -->
+<div id="app">
+    <!-- You may want to rearrange and edit the markup used here -->
+    <div id="coords"></div>
+    <div id="desc"></div>
+    <div id="icon"></div>
+    <div id="temp"></div>
+    <div id="temp_min"></div>
+    <div id="temp_max"></div>
+    <div id="pressure"></div>
+    <div id="humidity"></div>
+    <div id="speed"></div>
+    <div id="deg"></div>
+    <div id="clouds"></div>
+    <div id="dt"></div>
+    <div id="sunrise"></div>
+    <div id="sunset"></div>
+    <div id="location-name"></div>
+</div>
+
+<!-- A form allows us ot input the name of a city. Submiting the form weather for that city. -->
+<div>
+    <!-- Feel free to edit the markup used here -->
+    <form id="city-form" action="#" method="get">
+        <div>
+            <label for="city-input">City</label>
+            <input id="city-input">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <div>
+        <button id="save-city-button">Save City</button>
+    </div>
+</div>
+
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    // A helper function 
+    function getId(id) {
+        return document.getElementById(id);
+    }
+
+    // Get references to all of the elements that display info
+    var coords = getId("coords");
+    var desc = getId("desc");
+    var icon = getId("icon");
+    var temp = getId("temp");
+    var temp_min = getId("temp_min");
+    var temp_max = getId("temp_max");
+    var pressure = getId("pressure");
+    var humidity = getId("humidity");
+    var speed = getId("speed");
+    var deg = getId("deg");
+    var clouds = getId("clouds");
+    var dt = getId("dt");
+    var sunrise = getId("sunrise");
+    var sunset = getId("sunset");
+    var locationName = getId("location-name");
+    
+    var cityForm = getId("city-form");
+    var cityInput = getId("city-input");
+    var saveCityButton = getId("save-city-button");
+    
+    
+    
+    
+    // Load weather for the city saved in local storage, if there is a one...
+    var savedCity = getCity();
+    console.log(savedCity);
+    if (savedCity != null) {
+        loadData(savedCity);
+    }
+    
+    
+
+    // Call this method with the city name to load weather for that city
+    function loadData(city) {
+        // Register and get an api key
+        var apikey = "2854c5771899ff92cd962dd7ad58e7b0";
+        // Make a path with the city and api key
+        var path = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apikey;
+
+        // Use jQuery to load JSON data. 
+        $.get(path, function (data) {
+            // Print the data to console. Go look at it right now!
+            console.log(data);
+
+            // Collect values from the json data and display it in each of the divs above. 
+            coords.innerHTML = data.coord.lat + " " + data.coord.lon;
+            desc.innerHTML = data.weather[0].main + " " + data.weather[0].description;
+            // * Use the icon name to load an image for the weather. 
+            icon.innerHTML = data.weather[0].icon;
+            // * Convert the temp from Kelvin to F or C.
+            temp.innerHTML = data.main.temp;
+            // * Convert these from K to T or C.
+            temp_min.innerHTML = data.main.temp_min;
+            temp_max.innerHTML = data.main.temp_max;
+            humidity.innerHTML = data.main.humidity;
+            speed.innerHTML = data.wind.speed;
+            deg.innerHTML = data.wind.deg;
+            clouds.innerHTML = data.clouds.all;
+            dt.innerHTML = data.dt;
+            sunrise.innerHTML = data.sys.sunrise;
+            sunset.innerHTML = data.sys.sunset;
+            locationName.innerHTML = data.name;
+        });
+    }   
+    
+    cityForm.onsubmit = function (event) {
+        event.preventDefault();
+
+        var city = cityInput.value;
+        loadData(city);
+    }
+    
+    saveCityButton.onclick = function (event) {
+        var city = cityInput.value;
+        saveCity(city);
+    }
+    
+    // Save city to local storage
+
+    function saveCity(cityName) {
+        localStorage.setItem("weather-app", cityName);
+    }
+    
+    // !!! This possibly returns null you must handle this!
+    function getCity() {
+        return localStorage.getItem("weather-app");
+    }
+</script>

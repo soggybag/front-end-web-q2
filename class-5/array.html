@@ -1,0 +1,203 @@
+<script>
+
+    // These notes work through basic JS concepts with a focus on Arrays.
+
+    // To follow these examples you will need to open this file in a browser and open the console. 
+    // Read each section of the code below and look for the comment in the console. 
+    // Examine the output to the console and compare it to the code you read here. 
+    // Make changes to the code or add your own bits refresh the browser and examine the results. 
+    
+    // I have included some questions to answer marked with *. Write code to answer these
+    // refresh the browser and look for the results. 
+    
+    // - Define an array
+    var colorArray = ["red", "green", "blue", "yellow", "orange", "cyan", "magenta", "violet"];
+
+    console.log("-- Get something from the array");
+    console.log(colorArray[1]); // green
+    // * Display yellow, then violet
+
+    console.log("-- Count the items in the array");
+    console.log(colorArray.length);
+    // * Use length to the display violet
+
+    console.log("-- Add an item to the array");
+    colorArray.push("brown");
+    console.log(colorArray.length);
+    // * Add add lime, and black to the color array
+
+    console.log("-- Loop through all of the items in the array");
+    for (var i = 0; i < colorArray.length; i++) {
+        console.log(colorArray[i]);
+        // * Log the value for i to the console
+        // * Log the color and the value for i on the same line
+    }
+
+    console.log("-- Alternative method of looping through array");
+    for (var i in colorArray) {
+        console.log(colorArray[i]);
+        // * log the value for i
+    }
+
+    console.log("-- Generate a random number between 0.0 and 1.0");
+    console.log(Math.random());
+    // * Use a for loop to log 50 random numbers to the console
+
+    console.log("-- Generate a random between 1.0 and 6.0");
+    console.log(Math.random() * 5 + 1);
+    // * Log the line above 20 times
+    // * Generate a number between 1 and 100
+
+    console.log("-- Generate a random Int between 1 and 6");
+    console.log(Math.round(Math.random() * 5) + 1);
+    // * Generate a number between 3 and 18
+    // * Generate a number between 1 and 20
+    // * Do one of the above 30 times
+    // * Get a random color from colorArray
+
+    // Might as well write a function for the random int system above we are going to reuse it!
+    function randomInt(range) {
+        // Returns a random int between 0 and range
+        return Math.round(Math.random() * range);
+    }
+    // * Read the function above until you fully understand it...
+
+    console.log("-- Test the metod above 50 times!");
+    for (var i = 0; i < 50; i++) {
+        // Log a number between 1 and 6;
+        console.log(randomInt(5)+1);
+    }
+    // * Print 10 random colors from colorArray
+    // Did you use length?
+
+    
+    console.log("-- Get a random color from the array. Do it 50 times.");
+    for (var i = 0; i < 50; i++) {
+        console.log(colorArray[randomInt(colorArray.length - 1)]);
+    }
+    // * Read this function very closely until you are satisfied you understand it. 
+    
+    // -- array.slice()
+    // * Look up JavaScript Array.slice() come back later...
+    // Test slice here, do the following: 
+    // * Copy the colorArray into a new temp array named colorCopy
+    // * Create an array containing the colors: "yellow", "orange", "cyan"
+    
+    // * Look up Array.splice() come back later... 
+    // * Remove the first color from colorArray
+    // * remove the last color from colorArray
+
+    console.log("-- Randomize the order of the array");
+    // Make a copy of the array
+    var c = colorArray.slice();
+    // Make an empty array
+    var randomArray = [];
+    // Loop while there are items in c
+    while (c.length > 0) {
+        // Get a random index from c
+        var index = randomInt(c.length - 1);
+        // splice an item from c. This use of splice removes the item at index and returns an array.
+        // The first number is the starting index, the second is how many items to remove.
+        // Since splice returns an array use [0] to get the item and push it into randomArray.
+        randomArray.push(c.splice(index, 1)[0]);
+    }
+
+    console.log("-- The original array of colors");
+    console.log(colorArray);
+    console.log("-- New randomized array of colors");
+    console.log(randomArray);
+
+    // Make an array of random pairs
+    c = colorArray.slice();
+    // Make an empty array
+    var randomPairs = [];
+    // Loop 8 times
+    for (var i = 0; i < 8; i++) {
+        var index = randomInt(c.length - 1);
+        // Add this item twice
+        randomPairs.push(c[index]);
+        randomPairs.push(c[index]);
+        // Remove item at index from c
+        c.splice(index, 1);
+    }
+
+    console.log("-- Array of random pairs");
+    console.log(randomPairs);
+
+    
+
+    // We might need a function to randomize arrays.
+    // Since arrays are passed by reference it's important to create a unique copy of an array.
+    function randomizeArray(array) {
+        var copyArray = array.slice();  // Copy array
+        var newArray = [];              // This will be the output array
+        // Loop until the copy array is empty
+        while (copyArray.length > 0) {
+            // Get a random index
+            var index = randomInt(copyArray.length - 1);
+            // remove the item at index from the first array and copy it to the second.
+            newArray.push(copyArray.splice(index, 1)[0]);
+        }
+        // Return the new random array
+        return newArray;
+    }
+
+    console.log("-- Test the randomizeArray() function ")
+    var test = randomizeArray([1,2,3,4,5,6,7,8,9]);
+    console.log(test);
+    var randomColors = randomizeArray(colorArray);
+    console.log("-- Color Array");
+    console.log(colorArray);
+    console.log("-- Randomized colors");
+    console.log(randomColors);
+
+
+    //
+    function shuffle(array) {
+        var m = array.length, t, i;
+        // While there remain elements to shuffle
+        while (m) {
+            // Pick a remaining element
+            i = Math.floor(Math.random() * m--);
+            // And swap it with the current element.
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+        }
+
+        return array;
+    }
+
+    
+
+
+    function counter() {
+      var counter = 0;
+      return function() {
+        return counter ++;
+      }
+    }
+
+    var myCounter = counter()
+    console.log("My Counter:"+myCounter()) // 1
+    console.log("My Counter:"+myCounter()) // 2
+    console.log("My Counter:"+myCounter()) // 3
+    console.log("My Counter:"+myCounter()) // 4
+    console.log("My Counter:"+myCounter()) // 5
+    console.log("My Counter:"+myCounter()) // 6
+
+
+
+    // ** Challenge!
+    // Keep track of the random distribution. Put all of the numbers in an array.
+    // Log the % each value appears.
+    // ** Challenge!
+    // Display a graph made of divs the height of each is set by the number of times a number appears.
+    // ** Challenge!
+    // Loop through the array of colors, display the name of each color on the page.
+    // ** Challenge!
+    // Display a div for each color, randomize the colors.
+
+
+
+</script>

@@ -1,0 +1,124 @@
+
+
+<!-- 
+
+    This is a starter project for a simple weather app. 
+    
+    TODO:
+    
+    Conversions: 
+    Temperatures are provided in Kelvin you will need to convert these to celsius or fahrenheit. 
+    
+    Styles: 
+    add CSS to style all of the elements.
+    
+    Icons: 
+    The weather service provides an "icon" string 
+    which represents an image the current weather. You 
+    need to make an image for each possible weather situation. 
+    
+    Challenges:
+    
+    1) Show a 5 day forecast.
+    2) Show the 5 day forecast in another view and allow us to switch views with a transition.  
+
+-->
+
+<div id="app">
+    <div id="coords"></div>
+    <div id="desc"></div>
+    <div id="icon"></div>
+    <div id="temp"></div>
+    <div id="temp_min"></div>
+    <div id="temp_max"></div>
+    <div id="pressure"></div>
+    <div id="humidity"></div>
+    <div id="speed"></div>
+    <div id="deg"></div>
+    <div id="clouds"></div>
+    <div id="dt"></div>
+    <div id="sunrise"></div>
+    <div id="sunset"></div>
+    <div id="name"></div>
+</div>
+
+<div>
+    <form id="city-form" action="#" method="get">
+        <div>
+            <label for="city-input">City</label>
+            <input id="city-input">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    
+    // A helper function 
+    function getId(id) {
+        return document.getElementById(id);
+    }
+    
+    // Get references to all of the elements that display info
+    var coords = getId("coords");
+    var desc = getId("desc");
+    var icon = getId("icon");
+    var temp = getId("temp");
+    var temp_min = getId("temp_min");
+    var temp_max = getId("temp_max");
+    var pressure = getId("pressure");
+    var humidity = getId("humidity");
+    var speed = getId("speed");
+    var deg = getId("deg");
+    var clouds = getId("clouds");
+    var dt = getId("dt");
+    var sunrise = getId("sunrise");
+    var sunset = getId("sunset");
+    var name = getId("name");
+    
+    var cityForm = getId("city-form");
+    var cityInput = getId("city-input");
+    
+    function loadData(city) {
+        // Register and get an api key
+        var apikey = "768e23ad0120d9dc9708dadcd7506083";
+        // Make a path with the city and api key
+        var path = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apikey;
+        
+        console.log(path);
+        
+        $.get(path, function(data) {
+            console.log(data);
+            coords.innerHTML = data.coord.lat + " " + data.coord.lon;
+            desc.innerHTML = data.weather[0].main + " " + data.weather[0].description;
+            icon.innerHTML = data.weather[0].icon;
+            temp.innerHTML = data.main.temp;
+            temp_min.innerHTML = data.main.temp_min;
+            temp_max.innerHTML = data.main.temp_max;
+            humidity.innerHTML = data.main.humidity;
+            speed.innerHTML = data.wind.speed;
+            deg.innerHTML = data.wind.deg;
+            clouds.innerHTML = data.clouds.all;
+            dt.innerHTML = data.dt;
+            sunrise.innerHTML = data.sys.sunrise;
+            sunset.innerHTML = data.sys.sunset;
+            name.innerHTML = data.name;
+        });
+    }
+    
+    // loadData();
+    
+    cityForm.onsubmit = function(event) {
+        event.preventDefault();
+        
+        var city = cityInput.value;
+        
+        loadData(city);
+    } 
+    
+</script>

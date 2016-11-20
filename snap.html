@@ -1,0 +1,73 @@
+<svg id="svgout" width="300" height="300">
+
+</svg>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+<script>
+    var s = Snap("#svgout");
+
+    // lets draw 2 rects at position 100,100 and then reposition them
+
+    var r = s.rect(30, 20, 130, 55, 20, 20).attr({
+        stroke: '#123456',
+        strokeWidth: 10,
+        fill: 'red',
+        opacity: 1
+    });
+
+    r.click(function () {
+        this.attr('fill', '#fff')
+    })
+
+    // var t = s.text(100,50,'Snap("#svg") should reference an svg element, not a div. Or create it by supplying width,height Snap(100,100)');
+
+    var r = s.rect(10, 10, 100, 100);
+    var c = s.circle(100, 100, 50);
+
+    r.attr('fill', 'red'); //This is the elements area to fill
+
+    c.attr({
+        'fill': 'blue',
+        'stroke': 'black',
+        'strokeWidth': 10
+    });
+
+    r.attr({
+        stroke: '#123456',
+        'strokeWidth': 20
+    }); //Or this does the same thing passing one object
+
+    c.click(function () {
+        this.attr('fill', 'green')
+    }); // using 'this'
+    r.click(function () {
+        r.attr('fill', 'yellow')
+    });
+
+    // s.text(200,100, 'Click An Object').attr({'fill' : 'blue',  'stroke': 'blue', 'stroke-width': 0.2 });
+
+    var title = Snap.parse('<title>This is a title 2</title>');
+    var rect = s.rect(20, 20, 40, 40);
+    rect.hover(function() {
+        this.attr("fill", "magenta")
+    }, function() {
+        rect.attr("fill", "red")
+    });
+
+
+    var innerCircle = s.circle(150, 150, 80).attr({
+        fill: "none",
+        stroke: 'red',
+        strokeWidth: 30,
+        strokeDasharray: "10 300 40 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10",
+        strokeDashoffset: 50
+    });
+
+    Snap.animate(0, 400, function (value) {
+        innerCircle.attr({
+            'strokeDashoffset': value
+        })
+
+    }, 5000);
+</script>
