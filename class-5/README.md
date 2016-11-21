@@ -33,6 +33,7 @@ __Assets:__
 __Challenges__
 
 - Show a 5 day forecast
+- Spend 1 hour (or more on the design)
 - 
 
 

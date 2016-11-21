@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="131px" height="82px" viewBox="0 0 131 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Fog</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Fog" transform="translate(5.000000, 0.000000)" stroke="#000000" stroke-width="10">
+            <path d="M0.5,5 L110.518181,5" id="Line"></path>
+            <path d="M9.5,23 L119.518181,23" id="Line-Copy-5"></path>
+            <path d="M0.5,41 L110.518181,41" id="Line-Copy-6"></path>
+            <path d="M10.5,59 L120.518181,59" id="Line-Copy-7"></path>
+            <path d="M0.5,77 L110.518181,77" id="Line-Copy-8"></path>
+        </g>
+    </g>
+</svg>

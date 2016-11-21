@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Some elements with ids you can display your weather data here. -->
+        <div id="app">
+            <!-- Temperature -->
+            <div>
+                <div id="temp" class="biggest"></div>
+                <div>
+                    <div id="temp_min" class="smaller"></div>
+                </div>
+                <div>
+                    <div id="temp_max" class="smaller"></div>
+                </div>
+            </div>
+
+            <!-- Location Name -->
+            <div>
+                <div id="location-name" class="big"></div>
+                <div>
+                    <div id="coords" class="small"></div>
+                </div>
+            </div>
+
+            <!-- Weather Icon -->
+            <div id="icon"></div>
+
+
+            <!-- Weather Description -->
+            <div>Weather:
+                <div id="weather-main" class="bigger"></div>
+                <div>
+                    <div id="desc" class="medium"></div>
+                </div>
+            </div>
+
+            <!-- Weather Details -->
+            <div class="weather-details" class="small">
+                <div>Pressure:<span id="pressure"></span></div>
+                <div>Humidity:<span id="humidity"></span></div>
+                <div>Wind:<span id="speed"></span><span id="deg"></span></div>
+                <div>Clouds:<span id="clouds"></span></div>
+
+                <div class="medium">Date:<span id="dt"></span></div>
+                <div>Sunrise:<span id="sunrise"></span></div>
+                <div>Sunset:<span id="sunset"></span></div>
+            </div>
+
+
+        </div>
+
+        <!-- A form allows us ot input the name of a city. Submiting the form weather for that city. -->
+        <div class="city-form-container">
+            <!-- Feel free to edit the markup used here -->
+            <form id="city-form" class="alert-box" action="#" method="get">
+                <p class="alert-heading">City</p>
+                <p class="alert-subheading">Enter the name of a city</p>
+                <div>
+                    <label for="city-input">City</label>
+                    <input id="city-input">
+                </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="options">
+            <button id="save-city-button" class="option-button">
+                <svg width="72px" height="73px" viewBox="275 446 72 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <g id="Group-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(310.566125, 482.241639) rotate(-315.000000) translate(-310.566125, -482.241639) translate(285.566125, 457.241639)">
+                        <path d="M33.0508475,49.1472172 C33.1916599,49.1507602 33.3329099,49.1525424 33.4745763,49.1525424 L50,49.1525424 L50,32.8389831 L50,16.5254237 C50,7.3966775 42.6013158,1.38555833e-13 33.4745763,1.38555833e-13 C24.4856973,1.38555833e-13 17.1762175,7.17370124 16.9543413,16.1071515 C16.8118101,16.1035211 16.6688302,16.1016949 16.5254237,16.1016949 C7.3966775,16.1016949 0,23.5003791 0,32.6271186 C0,41.7558649 7.39868422,49.1525424 16.5254237,49.1525424 L33.0508475,49.1525424 L33.0508475,49.1472172 Z" id="Combined-Shape" fill="#F6A623"></path>
+                    </g>
+                </svg>
+            </button>
+
+            <button id="location-button" class="option-button">
+                <svg width="51px" height="61px" viewBox="286 562 51 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+                    <desc>Created with Sketch.</desc>
+                    <defs></defs>
+                    <path d="M293.67767,569.67767 C303.440777,559.914562 319.267755,559.912416 329.033009,569.67767 C338.796116,579.440777 338.798263,595.267755 329.033009,605.033009 L311.355339,622.710678 L293.67767,605.033009 C283.914562,595.269901 283.912416,579.442923 293.67767,569.67767 Z" id="Rectangle-2" stroke="none" fill="#F6A623" fill-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
