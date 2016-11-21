@@ -1,0 +1,80 @@
+<style>
+    body,
+    html {
+        margin: 0;
+        height: 100%;
+    }
+    
+    .container {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #000;
+        overflow: scroll;
+    }
+    
+    .content {
+        width: calc(400px * 3);
+        height: 400px;
+        position: absolute;
+    }
+    
+    .content > div {
+        width: 400px;
+        height: 400px;
+        float: left;
+    }
+    
+    .content > div:nth-child(1) {
+        background-color: aquamarine;
+    }
+    
+    .content > div:nth-child(2) {
+        background-color: cadetblue
+    }
+    
+    .content > div:nth-child(3) {
+        background-color: coral;
+    }
+</style>
+
+<!-- 
+
+    This example creates content in a scrolling container which snaps to a content box when scrolling ends. 
+    
+    To create scolling content the container must have overflow scroll. The content must then be larger than
+    than the container. From this point content will scroll within container. 
+    
+    Snapping to content is handled by setting the scrollLeft prooperty of content. To find the snapping point
+    look at the 
+
+-->
+
+<div class="container">
+    <div class="content">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    var delay = 1000;
+    var timeout = null;
+    $(".container").on('scroll', function () {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+            var x = $(".container").scrollLeft();
+            var newX = Math.round(x / 400) * 400;
+            $(".container").animate({
+                scrollLeft: newX + "px"
+            }, 200);
+        }, delay);
+    });
+</script>

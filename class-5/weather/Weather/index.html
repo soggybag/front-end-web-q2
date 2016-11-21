@@ -12,18 +12,17 @@
         <!-- Some elements with ids you can display your weather data here. -->
         <div id="app">
             <!-- Temperature -->
-            <div>
-                <div id="temp" class="biggest"></div>
-                <div>
-                    <div id="temp_min" class="smaller"></div>
+            <div class="temp">
+                <div id="temp" class="biggest temp-current"></div>
+                <div class="temp-min-max">
+                    <div class="smaller">min<span id="temp_min"></span></div>
+                    <div class="smaller">max<span id="temp_max"></span></div>
                 </div>
-                <div>
-                    <div id="temp_max" class="smaller"></div>
-                </div>
+                <div class="clear"></div>
             </div>
 
             <!-- Location Name -->
-            <div>
+            <div class="location">
                 <div id="location-name" class="big"></div>
                 <div>
                     <div id="coords" class="small"></div>
@@ -35,37 +34,36 @@
 
 
             <!-- Weather Description -->
-            <div>Weather:
-                <div id="weather-main" class="bigger"></div>
-                <div>
-                    <div id="desc" class="medium"></div>
+            <div class="weather-description">
+                <div>Weather:
+                    <div id="weather-main" class="bigger"></div>
+                    <div>
+                        <div id="desc" class="medium"></div>
+                    </div>
+                </div>
+
+                <!-- Weather Details -->
+                <div class="weather-details" class="small">
+                    <div>Pressure:<span id="pressure"></span></div>
+                    <div>Humidity:<span id="humidity"></span></div>
+                    <div>Wind:<span id="speed"></span><span id="deg"></span></div>
+                    <div>Clouds:<span id="clouds"></span></div>
+
+                    <div class="medium">Date:<span id="dt"></span></div>
+                    <div>Sunrise:<span id="sunrise"></span></div>
+                    <div>Sunset:<span id="sunset"></span></div>
                 </div>
             </div>
-
-            <!-- Weather Details -->
-            <div class="weather-details" class="small">
-                <div>Pressure:<span id="pressure"></span></div>
-                <div>Humidity:<span id="humidity"></span></div>
-                <div>Wind:<span id="speed"></span><span id="deg"></span></div>
-                <div>Clouds:<span id="clouds"></span></div>
-
-                <div class="medium">Date:<span id="dt"></span></div>
-                <div>Sunrise:<span id="sunrise"></span></div>
-                <div>Sunset:<span id="sunset"></span></div>
-            </div>
-
 
         </div>
 
         <div class="options">
             <button id="save-city-button" class="option-button">
-                <svg width="72px" height="73px" viewBox="275 446 72 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg width="58px" height="52px" viewBox="282 465 58 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
                     <desc>Created with Sketch.</desc>
                     <defs></defs>
-                    <g id="Group-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(310.566125, 482.241639) rotate(-315.000000) translate(-310.566125, -482.241639) translate(285.566125, 457.241639)">
-                        <path d="M33.0508475,49.1472172 C33.1916599,49.1507602 33.3329099,49.1525424 33.4745763,49.1525424 L50,49.1525424 L50,32.8389831 L50,16.5254237 C50,7.3966775 42.6013158,1.38555833e-13 33.4745763,1.38555833e-13 C24.4856973,1.38555833e-13 17.1762175,7.17370124 16.9543413,16.1071515 C16.8118101,16.1035211 16.6688302,16.1016949 16.5254237,16.1016949 C7.3966775,16.1016949 0,23.5003791 0,32.6271186 C0,41.7558649 7.39868422,49.1525424 16.5254237,49.1525424 L33.0508475,49.1525424 L33.0508475,49.1472172 Z" id="Combined-Shape" fill="#F6A623"></path>
-                    </g>
+                    <path d="M299.184273,505.009109 C299.281337,505.111184 299.379956,505.212323 299.480129,505.312496 L311.165368,516.997735 L334.236225,493.926879 C340.691223,487.47188 340.689804,477.00998 334.236225,470.5564 C327.880128,464.200303 317.638972,464.104293 311.165179,470.264306 C311.066961,470.160954 310.96715,470.058561 310.865747,469.957157 C304.410748,463.502159 293.948848,463.503578 287.495268,469.957157 C281.04027,476.412156 281.041689,486.874056 287.495268,493.327636 L299.180508,505.012875 L299.184273,505.009109 L299.184273,505.009109 Z" id="Combined-Shape" stroke="none" fill="#FFFFFF" fill-rule="evenodd" opacity="0.535495924"></path>
                 </svg>
             </button>
 
@@ -74,7 +72,7 @@
                     <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
                     <desc>Created with Sketch.</desc>
                     <defs></defs>
-                    <path d="M293.67767,569.67767 C303.440777,559.914562 319.267755,559.912416 329.033009,569.67767 C338.796116,579.440777 338.798263,595.267755 329.033009,605.033009 L311.355339,622.710678 L293.67767,605.033009 C283.914562,595.269901 283.912416,579.442923 293.67767,569.67767 Z" id="Rectangle-2" stroke="none" fill="#F6A623" fill-rule="evenodd"></path>
+                    <path d="M293.67767,569.67767 C303.440777,559.914562 319.267755,559.912416 329.033009,569.67767 C338.796116,579.440777 338.798263,595.267755 329.033009,605.033009 L311.355339,622.710678 L293.67767,605.033009 C283.914562,595.269901 283.912416,579.442923 293.67767,569.67767 Z" id="Rectangle-2" stroke="none" fill="#FFFFFF" fill-rule="evenodd" opacity="0.535495924"></path>
                 </svg>
             </button>
         </div>

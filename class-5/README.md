@@ -10,7 +10,9 @@
 
 | # | time    |    total | Activity   | Description |
 |---|---------|----------|------------|-------------|
-| 1 |  5 mins |   5 mins | TT         | CSS position |
+| 1 |  5 mins |   5 mins | TT         | Describe final projects |
+| 2 | 10 mins |  15 mins | Discussion | Q & A on final projects |
+| 3 | 15 mins |  30 mins | I do we do | JavaScript Arrays |
 
 
 ## Final project - 
@@ -34,7 +36,15 @@ be to track the time spent.
 Display current weather data in a web page. Include a field to input a city name.
 Display the current weather forecast for that city. Display the following info.
 
-__Display Info__
+Make this app more about design. Put your effort into making this look really good.
+Start by finding some inspirations. Designing a weather app is almost a rite of passage for designers. 
+You'll find many weather app examples on the internet. Take a look, note the features that you like: 
+
+- https://dribbble.com/search?q=weather+app
+- https://www.pinterest.com/search/pins/?q=weather%20app&rs=typed&term_meta[]=weather%7Ctyped&term_meta[]=app%7Ctyped
+- https://www.behance.net/search?content=projects&sort=appreciations&time=week&search=weather%20app
+
+**Display Info**
 
 - Temperature
 - Min, Max temp
@@ -50,48 +60,68 @@ __Display Info__
 - Date 
 - Sunrise, Sunset times
 
-**Feel free to modify this list to better fit your design.** 
+_Feel free to modify this list to better fit your design._
 
 You will need to create some assets for the project. 
 Here is a list:
 
-__Assets:__
+**Assets:**
 
 - Design for weather app. Use Sketch to create a design for your app.
 - Weatehr icons for openweathermap condition codes
     - http://openweathermap.org/weather-conditions
 - Images and other art for background and buttons etc. 
 
-__Challenges__
+
+**Time**
+
+- Examine the example project 1hr
+- Create a design in Sketch 2hr
+- Markup 1hr
+- CSS 3hr
+- JavaScript 1hr
+
+**Challenges**
 
 Before trying the challenges be sure to get the basic features working. 
 
 - Show a 5 day forecast
-- Spend 1 hour (or more on the design)
 - 
 
 
 ## Project 2 Matching Game
 
-Your game should display a grid of 16 squares. 
-Tapping a square should reveal an image. Tappng a second square should reveal a second image. 
-If the images match they stay open, otherwise the images disappear and the grid squares go 
-back to their original state.
+Your game should display a grid of 16 squares. Tapping a square should reveal an image. 
+Tappng a second square should reveal a second image. If the images match they stay open, 
+otherwise the images disappear and the grid squares go back to their original state.
 
-__Assets:__
+The goal of this assignment is to work on your programming skills. 
+
+**Assets:**
 
 - Create a design for your game in Sketch.
-- You will need images for matching. 
-    - 
+- Rather than an color use an image for matching. 
     
-__Challenges__
+**Time** 
 
-- Match 3
-- Create reset button
-- Choose the number of tiles
+- Create a design for your game in Sketch 1hr.
+- Markup 2hr
+- JavaScript 4hr.
+    
+**Challenges:**
+
+- Add timer that starts counting from the first tile click.
+- Count the number of clicks to finish the game. 
+- Check for completed game, all tiles revealed. 
+- Match 3 tiles instead of 2.
+- Choose the size of the grid, should probably be divisible by 2.
 
 
-**Schedule**
+
+## Time and Schedule 
+
+You should keep track of the time you spend on these two projects as you work. Use a tool to help 
+you track your time. 
 
 - class 5 - 
 - class 6 - 

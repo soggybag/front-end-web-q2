@@ -16,6 +16,9 @@ body {
 
 .wrapper {
     max-width: 414px;
+    min-height: 568px;
+    box-sizing: border-box;
+    padding: 20px;
     margin: auto;
     position: relative;
     width: 100%;
@@ -48,6 +51,41 @@ body {
     font-size: 18px;
 }
 
+.clear {
+    clear: both;
+}
+
+/* Temp */
+.temp-current {
+    float: left;
+}
+.temp-min-max {
+    float: left;
+    margin-top: 40px;
+    margin-top: 56px;
+    line-height: 1.5;
+}
+
+
+/* Location */
+.location {
+    text-align: right;
+}
+
+
+/* Weather Icon */
+#icon {
+    margin: 20px;
+    text-align: center;
+}
+
+/* weather-description */
+.weather-description {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
 
 /* Options */
 .options {
@@ -72,6 +110,7 @@ body {
     left: 0;
     top: 0;
     z-index: 999;
+    display: none;
 }
 
 .alert-box {
