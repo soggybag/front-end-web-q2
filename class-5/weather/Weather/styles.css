@@ -1,8 +1,10 @@
 body,
 html {
+    width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
+    
 }
 
 body {
@@ -12,9 +14,10 @@ body {
     /* Rectangle: */
     background-image: -webkit-linear-gradient(#1AC8F7 0%, #1B8ECA 100%);
     background-image: -o-linear-gradient(#1AC8F7 0%, #1B8ECA 100%);
-    background-image: linear-gradient(#1AC8F7 0%, #1B8ECA 100%);
+    background-image: linear-gradient(#1AC8F7 0%, #1B8ECA 100%); 
     
     overflow: hidden;
+    position: fixed;
 }
 
 .wrapper {
