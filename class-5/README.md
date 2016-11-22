@@ -29,7 +29,7 @@ There will be two projects to complete over the next 5 classes:
 
 Your goal will be to manage your time and make your best effort to complete both projects. 
 I will provide as much time as possible in class to work but it will also require time outside of class. 
-Working outside of class keep note of the time you spend. Also keep track of issues your may have, 
+Working outside of class keep note of the time you spend. Also keep track of issues you may have, 
 with the goal of bringing issues to class for discussion.
 
 Think of this as a job. Think of it as an experiment. Think of it as research. Knowing the time you 
@@ -38,16 +38,20 @@ be to track the time spent.
 
 ## Project 1 Weather app
 
-Display current weather data in a web page. Include a field to input a city name.
-Display the current weather forecast for that city. Display the following info.
+This is a web page that displays the current weather data in a web page. It has a field where you 
+can enter the name of a city. 
 
 Make this app more about design. Put your effort into making this look really good.
 Start by finding some inspirations. Designing a weather app is almost a rite of passage for designers. 
-You'll find many weather app examples on the internet. Take a look, note the features that you like: 
+You'll find many weather app examples on the internet. Color and typography will play a big role. 
+
+Take a look at some examples, note the features that you like: 
 
 - https://dribbble.com/search?q=weather+app
 - https://www.pinterest.com/search/pins/?q=weather%20app&rs=typed&term_meta[]=weather%7Ctyped&term_meta[]=app%7Ctyped
 - https://www.behance.net/search?content=projects&sort=appreciations&time=week&search=weather%20app
+
+The example uses the OpenweatherMap API. This API provides the following data.
 
 **Display Info**
 
@@ -73,18 +77,20 @@ Here is a list:
 **Assets:**
 
 - Design for weather app. Use Sketch to create a design for your app.
-- Weatehr icons for openweathermap condition codes
+- Weather icons for openweathermap condition codes
     - http://openweathermap.org/weather-conditions
-- Images and other art for background and buttons etc. 
-
+- Images and other art for background and buttons etc.
+    - Try and produce as much of this via CSS as you can. 
 
 **Time**
+
+This is a rough guide to the minimum amout of time you should spend. 
 
 - Examine the example project 1hr
 - Create a design in Sketch 2hr
 - Markup 1hr
 - CSS 3hr
-- JavaScript 1hr
+- JavaScript 2hr
 
 **Challenges**
 
@@ -109,9 +115,11 @@ The goal of this assignment is to work on your programming skills.
     
 **Time** 
 
-- Create a design for your game in Sketch 1hr.
+This is the minimum amount of time you should spend.
+
+- Create a design for your game in Sketch 2hr.
 - Markup 2hr
-- JavaScript 4hr.
+- JavaScript 4hr
     
 **Challenges:**
 
