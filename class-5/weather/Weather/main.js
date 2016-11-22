@@ -1,40 +1,35 @@
-// A helper function 
-function getId(id) {
-    return document.getElementById(id);
-}
-
 // Get references to all of the elements that display info
-var coords = getId("coords");
-var weatherMain = getId("weather-main");
-var desc = getId("desc");
-var icon = getId("icon");
-var temp = getId("temp");
-var temp_min = getId("temp_min");
-var temp_max = getId("temp_max");
-var pressure = getId("pressure");
-var humidity = getId("humidity");
-var speed = getId("speed");
-var clouds = getId("clouds");
-var dt = getId("dt");
-var sunrise = getId("sunrise");
-var sunset = getId("sunset");
-var locationName = getId("location-name");
+var coords = $("#coords");
+var weatherMain = $("#weather-main");
+var desc = $("#desc");
+var icon = $("#icon");
+var temp = $("#temp");
+var temp_min = $("#temp_min");
+var temp_max = $("#temp_max");
+var pressure = $("#pressure");
+var humidity = $("#humidity");
+var speed = $("#speed");
+var clouds = $("#clouds");
+var dt = $("#dt");
+var sunrise = $("#sunrise");
+var sunset = $("#sunset");
+var locationName = $("#location-name");
 
-var cityForm = getId("city-form");
-var cityInput = getId("city-input");
-var saveCityButton = getId("save-city-button");
-
-
-
+var cityForm = $("#city-form");
+var cityInput = $("#city-input");
+var saveCityButton = $("#save-city-button");
 
 // Load weather for the city saved in local storage, if there is a one...
 var savedCity = getCity();
-console.log(savedCity);
-if (savedCity != null) {
+// Check this city if nothing was saved it should be undefined.
+if (savedCity != undefined) {
+    // We saved a city load the weather!
+    console.log("Loading Saved city:"+saveCity);
     loadData(savedCity);
+} else {
+    console.log("No saved city to load");
+    $("body").addClass("no-weather");
 }
-
-
 
 // Call this method with the city name to load weather for that city
 function loadData(city) {
@@ -47,53 +42,68 @@ function loadData(city) {
     $.get(path, function (data) {
         // Print the data to console. Go look at it right now!
         console.log(data);
+        
+        // Check for errors
+        if (data.cod == 200) {
+            $("body").removeClass("no-weather");
+        } else {
+            $("body").addClass("no-weather");
+            return
+        }
+        
 
         // Collect values from the json data and display it in each of the divs above. 
-        coords.innerHTML = data.coord.lat + " " + data.coord.lon;
+        coords.html(data.coord.lat + " " + data.coord.lon);
 
         // data.weather array sometimes has more than one item! 
-        weatherMain.innerHTML = data.weather[0].main;
-        desc.innerHTML = data.weather[0].description;
+        weatherMain.html(data.weather[0].main);
+        desc.html(data.weather[0].description);
         // * Use the icon name to load an image for the weather. 
-        icon.innerHTML = "<img src='weather-icons/" + data.weather[0].icon + ".svg'>";
+        icon.html("<img src='weather-icons/" + data.weather[0].icon + ".svg'>");
         // For more info on icons and condition codes: https://openweathermap.org/weather-conditions
 
         // * Convert the temp from Kelvin to F or C.
-        temp.innerHTML = kToF(data.main.temp);
+        temp.html(kToF(data.main.temp, 0));
 
         // * Convert these from K to T or C.
-        temp_min.innerHTML = kToF(data.main.temp_min);
-        temp_max.innerHTML = kToF(data.main.temp_max);
+        temp_min.html(kToF(data.main.temp_min, 0));
+        temp_max.html(kToF(data.main.temp_max, 0));
 
-        pressure.innerHTML = data.main.pressure;
-        humidity.innerHTML = data.main.humidity + "%";
+        pressure.html(data.main.pressure);
+        humidity.html(data.main.humidity + "%");
 
         // Wind - These properties are some times missing. Check for undefined before displaying them!
-        var speed = data.wind.speed;
-        var deg = data.wind.deg;
-        var gust = data.wind.gust;
+        var windSpeed = data.wind.speed;
+        var windDeg = data.wind.deg;
+        var windGust = data.wind.gust;
 
-        speed.innerHTML = speed;
+        speed.html(windSpeed);
 
-        clouds.innerHTML = data.clouds.all;
-        dt.innerHTML = new Date(data.dt * 1000).toDateString();
-        sunrise.innerHTML = getTimeFrom(new Date(data.sys.sunrise * 1000));
-        sunset.innerHTML = getTimeFrom(new Date(data.sys.sunset * 1000));
-        locationName.innerHTML = data.name;
+        clouds.html(data.clouds.all);
+        dt.html(new Date(data.dt * 1000).toDateString());
+        sunrise.html(getTimeFrom(new Date(data.sys.sunrise * 1000)));
+        sunset.html(getTimeFrom(new Date(data.sys.sunset * 1000)));
+        locationName.html(data.name);
     });
 }
 
-cityForm.onsubmit = function (event) {
+
+// Form
+
+$("#city-form").submit(function (event) {
     event.preventDefault();
-
-    var city = cityInput.value;
+    console.log("City form Submit");
+    var city = cityInput.val();
+    $(".city-form-container").removeClass("show");
+    // Show loading progress??
     loadData(city);
-}
+});
 
-saveCityButton.onclick = function (event) {
-    var city = cityInput.value;
+saveCityButton.click(function (event) {
+    event.preventDefault();
+    var city = cityInput.val();
     saveCity(city);
-}
+});
 
 // Save city to local storage
 
@@ -106,7 +116,22 @@ function getCity() {
     return localStorage.getItem("weather-app");
 }
 
-function addZero(i) {
+
+// Buttons
+
+$("#location-button").click(function(){
+    $(".city-form-container").addClass("show");
+});
+
+$("#save-city-button").click(function(){
+    // $(".city-form-container").addClass("show");
+});
+
+
+// Helper functions 
+
+
+function padWithZero(i) {
     if (i < 10) {
         i = "0" + i;
     }
@@ -114,17 +139,17 @@ function addZero(i) {
 }
 
 function getTimeFrom(date) {
-    var h = addZero(date.getHours());
-    var m = addZero(date.getMinutes());
-    var s = addZero(date.getSeconds());
+    var h = padWithZero(date.getHours());
+    var m = padWithZero(date.getMinutes());
+    var s = padWithZero(date.getSeconds());
     return h + ":" + m + ":" + s;
 }
 
-function kToF(t) {
+function kToF(t, decimals) {
     // Do some math and round to two decimal places.
-    return (t * 9 / 5 - 459.67).toFixed(2);
+    return (t * 9 / 5 - 459.67).toFixed(decimals);
 }
 
-function kToC(t) {
-    return (t - 273.15).toFixed(2);
+function kToC(t, decimals) {
+    return (t - 273.15).toFixed(decimals);
 }

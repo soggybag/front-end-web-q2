@@ -3,6 +3,7 @@
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -12,17 +13,17 @@
         <!-- Some elements with ids you can display your weather data here. -->
         <div id="app">
             <!-- Temperature -->
-            <div class="temp">
+            <div class="temp hide-when-empty">
                 <div id="temp" class="biggest temp-current"></div>
                 <div class="temp-min-max">
-                    <div class="smaller">min<span id="temp_min"></span></div>
-                    <div class="smaller">max<span id="temp_max"></span></div>
+                    <div class="smaller"> min <span id="temp_min"></span></div>
+                    <div class="smaller"> max <span id="temp_max"></span></div>
                 </div>
                 <div class="clear"></div>
             </div>
 
             <!-- Location Name -->
-            <div class="location">
+            <div class="location hide-when-empty">
                 <div id="location-name" class="big"></div>
                 <div>
                     <div id="coords" class="small"></div>
@@ -34,8 +35,8 @@
 
 
             <!-- Weather Description -->
-            <div class="weather-description">
-                <div>Weather:
+            <div class="weather-description hide-when-empty">
+                <div>
                     <div id="weather-main" class="bigger"></div>
                     <div>
                         <div id="desc" class="medium"></div>
@@ -43,22 +44,27 @@
                 </div>
 
                 <!-- Weather Details -->
-                <div class="weather-details" class="small">
-                    <div>Pressure:<span id="pressure"></span></div>
-                    <div>Humidity:<span id="humidity"></span></div>
-                    <div>Wind:<span id="speed"></span><span id="deg"></span></div>
-                    <div>Clouds:<span id="clouds"></span></div>
+                <div class="weather-details hide-when-empty" class="small">
+                    <div class="lighter">Pressure: <span id="pressure" class="bright"></span></div>
+                    <div class="lighter">Humidity: <span id="humidity" class="bright"></span></div>
+                    
+                    <div class="lighter">Wind: 
+                        <span id="speed" class="bright"></span>
+                        <span id="deg" class="bright"></span>
+                    </div>
+                    
+                    <div class="lighter">Clouds: <span id="clouds" class="bright"></span></div>
 
-                    <div class="medium">Date:<span id="dt"></span></div>
-                    <div>Sunrise:<span id="sunrise"></span></div>
-                    <div>Sunset:<span id="sunset"></span></div>
+                    <div class="medium">Date: <span id="dt" class="bright"></span></div>
+                    <div class="lighter">Sunrise: <span id="sunrise" class="bright"></span></div>
+                    <div class="lighter">Sunset: <span id="sunset" class="bright"></span></div>
                 </div>
             </div>
 
         </div>
 
         <div class="options">
-            <button id="save-city-button" class="option-button">
+            <button id="save-city-button" class="option-button hide-when-empty">
                 <svg width="58px" height="52px" viewBox="282 465 58 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
                     <desc>Created with Sketch.</desc>
@@ -89,8 +95,12 @@
                 <input id="city-input">
             </div>
             <div>
-                <button type="submit">Submit</button>
+                <button class="left-alert-button" type="submit">Submit</button>
             </div>
+            <div>
+                <button class="right-alert-button">Cancel</button>
+            </div>
+            
         </form>
     </div>
 

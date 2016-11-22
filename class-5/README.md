@@ -13,6 +13,11 @@
 | 1 |  5 mins |   5 mins | TT         | Describe final projects |
 | 2 | 10 mins |  15 mins | Discussion | Q & A on final projects |
 | 3 | 15 mins |  30 mins | I do we do | JavaScript Arrays |
+| 4 | 15 mins |  45 mins | Challenges | Array Challenges |
+| 5 | 10 mins |  55 mins | Break      | Think and give thanks |
+| 6 | 50 mins | 105 mins | Work       | Work |
+| 7 |  5 mins | 110 mins | TT         | Wrap up |
+
 
 
 ## Final project - 
@@ -116,12 +121,15 @@ The goal of this assignment is to work on your programming skills.
 - Match 3 tiles instead of 2.
 - Choose the size of the grid, should probably be divisible by 2.
 
-
-
 ## Time and Schedule 
 
 You should keep track of the time you spend on these two projects as you work. Use a tool to help 
 you track your time. 
+
+- Toggl - This a great time tracking tool. They have a web site, and app. 
+
+Log your hours between each class. Try to devote 6 hours per week! In reality this would be two 9 hour 
+days on a job. 
 
 - class 5 - 
 - class 6 - 
