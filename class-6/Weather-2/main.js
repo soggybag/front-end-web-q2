@@ -24,7 +24,7 @@ var savedCity = getCity();
 // Check this city if nothing was saved it should be undefined.
 if (savedCity != undefined) {
     // We saved a city load the weather!
-    console.log("Loading Saved city:"+saveCity);
+    console.log("Loading Saved city:" + saveCity);
     loadData(savedCity);
 } else {
     console.log("No saved city to load");
@@ -83,13 +83,58 @@ function loadData(city) {
 
         clouds.html(data.clouds.all);
         dt.html(new Date(data.dt * 1000).toDateString());
-        sunrise.html(getTimeFrom(new Date(data.sys.sunrise * 1000)));
-        sunset.html(getTimeFrom(new Date(data.sys.sunset * 1000)));
+        sunrise.html(formatAMPM(new Date(data.sys.sunrise * 1000)));
+        sunset.html(formatAMPM(new Date(data.sys.sunset * 1000)));
         locationName.html(data.name);
-        
+
         // Set background graient based on temp
         // var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
         // $("body").attr("style", backgroundCSS);
+        
+        // ***** Load five day forecast *****
+        loadFiveDayForecast(data.coord.lat, data.coord.lon);
+    });
+}
+
+
+
+// ********
+// Five day forecast
+function loadFiveDayForecast(lat, lon) {
+    //five-day-forecast
+    var apikey = "2854c5771899ff92cd962dd7ad58e7b0";
+    var path = "http://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+lon+"&appid="+apikey;
+    $.get(path, function(data) {
+        console.log("-------- Five Day --------");
+        // console.log(data.list);
+        var cityName = data.city.name;
+        var cityPop = data.city.sys.population;
+        var list = [];
+        var html = "";
+        for (var i = 0; i < data.list.length; i++) {
+            var obj = {};
+            obj.clouds = data.list[i].clouds.all;
+            obj.dt =  new Date(data.list[i].dt * 1000).toDateString()+" "+formatAMPM(new Date(data.list[i].dt * 1000));
+            obj.temp = data.list[i].main.temp;
+            obj.temp_min = data.list[i].main.temp_min;
+            obj.temp_max = data.list[i].main.temp_max;
+            obj.grnd_level = data.list[i].main.grnd_level;
+            obj.humidity = data.list[i].main.humidity;
+            obj.pressure = data.list[i].main.pressure;
+            obj.description = data.list[i].weather[0].description;
+            obj.icon = data.list[i].weather[0].icon;
+            obj.shortDesc = data.list[i].weather[0].main;
+            obj.windSpeed = data.list[i].wind.speed;
+            obj.windDeg = data.list[i].wind.deg;
+            list.push(obj);
+            html += "<div><span>"+
+                obj.dt+"</span> <span>"+
+                obj.temp+"</span> <span>"+
+                obj.humidity+"</span> <span>"+
+                obj.description+"</span></div>";
+        } 
+        
+        $("#five-day-forecast").html(html);
     });
 }
 
@@ -125,11 +170,11 @@ function getCity() {
 
 // Buttons
 
-$("#location-button").click(function(){
+$("#location-button").click(function () {
     $(".city-form-container").addClass("show");
 });
 
-$("#save-city-button").click(function(){
+$("#save-city-button").click(function () {
     // $(".city-form-container").addClass("show");
 });
 
@@ -151,6 +196,19 @@ function getTimeFrom(date) {
     return h + ":" + m + ":" + s;
 }
 
+function formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+}
+
+
+
 function kToF(t, decimals) {
     // Do some math and round to two decimal places.
     return (t * 9 / 5 - 459.67).toFixed(decimals);
@@ -161,8 +219,8 @@ function kToC(t, decimals) {
 }
 
 // Prevent scroll on mobile
-$(document).on('touchmove', function(e) {
-  e.preventDefault();
+$(document).on('touchmove', function (e) {
+    e.preventDefault();
 });
 
 
@@ -172,16 +230,16 @@ $(document).on('touchmove', function(e) {
 // Start with a temperature, in Kelvin, somewhere between 1000 and 40000.  (Other values may work,
 //  but I can't make any promises about the quality of the algorithm's estimates above 40000 K.)
 
-function colorTemperatureToRGB(kelvin){
+function colorTemperatureToRGB(kelvin) {
     var temp = kelvin / 1;
     var red, green, blue;
 
-    if( temp <= 66 ){
+    if (temp <= 66) {
         red = 255;
         green = temp;
         green = 99.4708025861 * Math.log(green) - 161.1195681661;
-        
-        if( temp <= 19){
+
+        if (temp <= 19) {
             blue = 0;
         } else {
             blue = temp - 10;
@@ -191,42 +249,46 @@ function colorTemperatureToRGB(kelvin){
         red = temp - 60;
         red = 329.698727446 * Math.pow(red, -0.1332047592);
         green = temp - 60;
-        green = 288.1221695283 * Math.pow(green, -0.0755148492 );
+        green = 288.1221695283 * Math.pow(green, -0.0755148492);
         blue = 255;
     }
 
     return {
-        r : Math.round(clamp(red,   0, 255)),
-        g : Math.round(clamp(green, 0, 255)),
-        b : Math.round(clamp(blue,  0, 255))
+        r: Math.round(clamp(red, 0, 255)),
+        g: Math.round(clamp(green, 0, 255)),
+        b: Math.round(clamp(blue, 0, 255))
     }
 }
 
-function clamp( x, min, max ) {
-    if(x<min){ return min; }
-    if(x>max){ return max; }
+function clamp(x, min, max) {
+    if (x < min) {
+        return min;
+    }
+    if (x > max) {
+        return max;
+    }
     return x;
 }
 
+
+
 function makeRGBACSSStr(rgb) {
-    return "rgba("+rgb.r+","+rgb.g+","+rgb.b+",1)";
+    return "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + ",1)";
 }
 
 // Generate Background Gradient
 function generateBackground(minTemp, maxTemp, currentTemp) {
     var minRGB = colorTemperatureToRGB(1) //Number(minTemp));
     var midRGB = colorTemperatureToRGB(60) //currentTemp);
-    var maxRGB = colorTemperatureToRGB(1000)    //maxTemp);
-    
+    var maxRGB = colorTemperatureToRGB(1000) //maxTemp);
+
     console.log(minRGB);
-    
+
     var minColor = makeRGBACSSStr(minRGB);
     var midColor = makeRGBACSSStr(midRGB);
     var maxColor = makeRGBACSSStr(maxRGB);
-    
-    var cssStr = "background-image: -webkit-linear-gradient("+minColor+" 0%, "+midColor+" 43%, "+maxColor+" 100%);"
-    +"background-image: -o-linear-gradient("+minColor+" 0%, "+midColor+" 43%, "+maxColor+" 100%);"
-    +"background-image: linear-gradient("+minColor+" 0%, "+midColor+" 43%, "+maxColor+" 100%);"
-    
+
+    var cssStr = "background-image: -webkit-linear-gradient(" + minColor + " 0%, " + midColor + " 43%, " + maxColor + " 100%);" + "background-image: -o-linear-gradient(" + minColor + " 0%, " + midColor + " 43%, " + maxColor + " 100%);" + "background-image: linear-gradient(" + minColor + " 0%, " + midColor + " 43%, " + maxColor + " 100%);"
+
     return cssStr;
 }

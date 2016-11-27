@@ -14,15 +14,18 @@
     var colorArray = ["red", "green", "blue", "yellow", "orange", "cyan", "magenta", "violet"];
 
     console.log("-- Get something from the array");
-    console.log(colorArray[1]); // green
+    console.log(colorArray[3]); // green
+    console.log(colorArray[4])
     // * Display yellow, then violet
 
     console.log("-- Count the items in the array");
     console.log(colorArray.length);
+    console.log(colorArray[colorArray.length -1])
     // * Use length to the display violet
 
     console.log("-- Add an item to the array");
     colorArray.push("brown");
+    colorArray.push("Taupe");
     console.log(colorArray.length);
     // * Add add lime, and black to the color array
 
@@ -32,11 +35,13 @@
         // * Log the value for i to the console
         // * Log the color and the value for i on the same line
     }
+    
+    // colorArray["a"] = "AAAA"
 
     console.log("-- Alternative method of looping through array");
     for (var i in colorArray) {
         console.log(colorArray[i]);
-        // * log the value for i
+        // * log the value for i !!!!!!
     }
 
     console.log("-- Generate a random number between 0.0 and 1.0");
@@ -167,10 +172,8 @@
 
         return array;
     }
-
     
-
-
+    
     function counter() {
       var counter = 0;
       return function() {

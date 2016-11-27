@@ -27,13 +27,30 @@ body {
     max-width: 414px;
     min-height: 568px;
 
-    overflow: hidden;
+    overflow-x: scroll;
 
     box-sizing: border-box;
     padding: 20px;
     margin: auto;
     position: relative;
 }
+
+
+.container {
+    width: 200%;
+    height: 100%
+}
+
+.screen {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#five-day {
+    background: red;
+}
+
 
 .biggest {
     /* 120 */
@@ -115,8 +132,6 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 100%;
-    width: auto;
 }
 
 

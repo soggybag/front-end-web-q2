@@ -1,0 +1,37 @@
+#game, .wrapper {
+    width: 440px;
+    height: 440px;
+    margin: auto;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Change Hover to  */
+.box.open .inner-box, .box.locked .inner-box {
+    top: -100px;
+}
+
+.inner-box {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    transition: 200ms;
+}
+
+.front,
+.back {
+    width: 100px;
+    height: 100px;
+}
+
+.front {
+    background-color: #000;
+}
