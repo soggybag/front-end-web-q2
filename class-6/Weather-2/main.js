@@ -339,3 +339,10 @@ function generateBackground(minTemp, maxTemp, currentTemp) {
 
     return cssStr;
 }
+
+
+
+
+
+
+
