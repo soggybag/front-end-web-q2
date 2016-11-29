@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="162px" height="162px" viewBox="0 0 162 162" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>shape-1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M63.3333333,95 L95,95 L95,31.6666325 C95,14.1711345 80.8223504,0 63.3333333,0 C45.8404709,0 31.6666667,14.1776343 31.6666667,31.6666325 C14.1711345,31.6666667 3.1431627e-14,45.8443163 3.03607335e-14,63.3333333 C2.92896046e-14,80.8261958 14.1776343,95 31.6666325,95 L63.3333333,95 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="95" height="95" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="31.6666667" y="31.6666667" width="63.3333333" height="63.3333333"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="63.3333333" height="63.3333333" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="shape-1" transform="translate(6.000000, 6.000000)" stroke="#000000">
+            <g id="Oval-5" stroke-width="11">
+                <circle cx="75" cy="75" r="75"></circle>
+            </g>
+            <g id="Group-11" transform="translate(75.175144, 67.175144) rotate(45.000000) translate(-75.175144, -67.175144) translate(27.675144, 19.675144)" stroke-width="10">
+                <use id="Combined-Shape" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                <use id="Rectangle-2" mask="url(#mask-4)" xlink:href="#path-3"></use>
+            </g>
+        </g>
+    </g>
+</svg>

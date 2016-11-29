@@ -1,9 +1,39 @@
+
+<div id="weather">
+<div id="desc"></div>
+<div id="temp"></div>
+</div>
+
+<div>
+    <form id="city-form">
+        <div><input type="text" id="city-name"></div>
+        <div><input type="submit"></div>
+    </form>
+</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
     
-    $.get("http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=2854c5771899ff92cd962dd7ad58e7b0", function(data){
-        console.log(data);
-    })
+    $("#city-form").submit(function(event){
+        event.preventDefault();
+        
+        var cityName = $("#city-name").val();
+        getWeather(cityName);
+    });
+    
+    function getWeather(city) {
+        $.get("http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=2854c5771899ff92cd962dd7ad58e7b0", function(data){
+            console.log(data);
+            $("#desc").html(data.weather[0].description);
+            $("#temp").html(data.main.temp);
+        });
+    }
+    
+    for (var i = 0; i < 10; i += 0.1) {
+        console.log(Math.cos(i));
+    }
+    
     
     // http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=2854c5771899ff92cd962dd7ad58e7b0
 </script>

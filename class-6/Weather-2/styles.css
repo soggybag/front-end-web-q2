@@ -45,10 +45,12 @@ body {
     width: 50%;
     height: 100%;
     float: left;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 #five-day {
-    background: red;
+    overflow-y: scroll;
 }
 
 
@@ -261,3 +263,15 @@ input#city-input {
 body.no-weather .hide-when-empty {
     opacity: 0;
 }
+
+
+
+
+
+.three-hr {
+    margin: 10px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+}
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="162px" height="162px" viewBox="0 0 162 162" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>shape-7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M54.7743892,54.7743479 C48.9002202,45.515808 50.0004435,33.1063915 58.0790325,25.0278025 C67.4313078,15.6755272 82.5922856,15.6734709 91.9466172,25.0278025 C100.023654,33.1048389 101.12654,45.5144759 95.2513018,54.7743892 C104.509842,48.9002202 116.919258,50.0004435 124.997847,58.0790325 C134.350123,67.4313078 134.352179,82.5922856 124.997847,91.9466172 C116.920811,100.023654 104.511174,101.12654 95.2512606,95.2513018 C101.12543,104.509842 100.025206,116.919258 91.9466172,124.997847 C82.594342,134.350123 67.4333641,134.352179 58.0790325,124.997847 C50.0019961,116.920811 48.8991099,104.511174 54.7743479,95.2512606 C45.515808,101.12543 33.1063915,100.025206 25.0278025,91.9466172 C15.6755272,82.594342 15.6734709,67.4333641 25.0278025,58.0790325 C33.1048389,50.0019961 45.5144759,48.8991099 54.7743892,54.7743479 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="114" height="114" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="shape-7" transform="translate(6.000000, 6.000000)" stroke="#000000">
+            <g id="Oval-5" stroke-width="11">
+                <circle cx="75" cy="75" r="75"></circle>
+            </g>
+            <use id="Rectangle-6" mask="url(#mask-2)" stroke-width="10" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
