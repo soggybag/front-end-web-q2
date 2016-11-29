@@ -12,13 +12,12 @@ var savedCity = getCity();
 // Check this city if nothing was saved it should be undefined.
 if (savedCity != undefined) {
     // We saved a city load the weather!
-    console.log("Loading Saved city:" + saveCity);
-    loadData(savedCity);
+    console.log("Loading Saved city:" + savedCity);
+    loadWeatherForCity(savedCity);
 } else {
     console.log("No saved city to load");
     $("body").addClass("no-weather");
 }
-
 // ----------------------------------------------------------------------
 
 
@@ -30,73 +29,89 @@ if (savedCity != undefined) {
 // 
 // ----------------------------------------------------------------------
 // Call this method with the city name to load weather for that city
-function loadData(city) {
-    // Make a path with the city and api key
+
+function loadWeatherForCity(city) {
     var path = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apikey;
-    
     // Use jQuery to load JSON data.
-    $.get(path, function (data) {
-        // Print the data to console. Go look at it right now!
-        console.log(data);
-        
-        // Check for errors
-        if (data.cod == 200) {
-            // COD = 200 and everything is okay.
-            $("body").removeClass("no-weather");
-        } else {
-            // Otherwise there was a problem hide UI stuff.
-            $("body").addClass("no-weather");
-            return
-        }
+    $.get(path, loadWeather);
+}
 
-        // Collect values from the json data and display it in each of the divs above.
-        $("#lat").html(data.coord.lat);
-        $("#lon").html(data.coord.lon);
-
-        // data.weather array sometimes has more than one item!
-        $("#weather-main").html(data.weather[0].main);
-        $("#desc").html(data.weather[0].description);
-        // * Use the icon name to load an image for the weather.
-        $("#icon").html("<img src='weather-icons/" + data.weather[0].icon + ".svg'>");
-        // For more info on icons and condition codes: https://openweathermap.org/weather-conditions
-
-        // * Convert the temp from Kelvin to F or C.
-        $("#temp").html(kToF(data.main.temp, 0));
-
-        // * Convert these from K to T or C.
-        $("#temp_min").html(kToF(data.main.temp_min, 0));
-        $("#temp_max").html(kToF(data.main.temp_max, 0));
-
-        $("#pressure").html(data.main.pressure);
-        $("#humidity").html(data.main.humidity + "%");
-
-        // Wind - These properties are some times missing. Check for undefined before displaying them!
-        var windSpeed = data.wind.speed;
-        var windDeg = data.wind.deg;
-        var windGust = data.wind.gust;
-        
-        var wind = windSpeed + " mph";
-        if (windDeg != undefined) {wind += " "+windDeg+"&deg;";}
-        if (windGust != undefined) {wind += " "+ windGust+" Gust"}
-
-        $("#speed").html(wind);
-
-        $("#clouds").html(data.clouds.all);
-        $("#dt").html(new Date(data.dt * 1000).toDateString());
-        $("#sunrise").html(formatAMPM(new Date(data.sys.sunrise * 1000)));
-        $("#sunset").html(formatAMPM(new Date(data.sys.sunset * 1000)));
-        $("#location-name").html(data.name);
-
-        // Set background graient based on temp
-        // var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
-        // $("body").attr("style", backgroundCSS);
-        
-        // ***** Load five day forecast *****
-        // Now that we have a location we can ask for a 5 day forecast.
-        loadFiveDayForecast(data.coord.lat, data.coord.lon);
+function loadWeatherForLocation() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        var path = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=" + apikey;
+        console.log("Load weather for location:"+lat+" "+lon);
+        $.get(path, loadWeather);
     });
 }
 
+function loadWeather(data) {
+    // Make a path with the city and api key
+
+    // Print the data to console. Go look at it right now!
+    console.log(data);
+
+    // Check for errors
+    if (data.cod == 200) {
+        // COD = 200 and everything is okay.
+        $("body").removeClass("no-weather");
+    } else {
+        // Otherwise there was a problem hide UI stuff.
+        $("body").addClass("no-weather");
+        return
+    }
+
+    // Collect values from the json data and display it in each of the divs above.
+    $("#lat").html(data.coord.lat);
+    $("#lon").html(data.coord.lon);
+
+    // data.weather array sometimes has more than one item!
+    $("#weather-main").html(data.weather[0].main);
+    $("#desc").html(data.weather[0].description);
+    // * Use the icon name to load an image for the weather.
+    $("#icon").html("<img src='weather-icons/" + data.weather[0].icon + ".svg'>");
+    // For more info on icons and condition codes: https://openweathermap.org/weather-conditions
+
+    // * Convert the temp from Kelvin to F or C.
+    $("#temp").html(kToF(data.main.temp, 0));
+
+    // * Convert these from K to T or C.
+    $("#temp_min").html(kToF(data.main.temp_min, 0));
+    $("#temp_max").html(kToF(data.main.temp_max, 0));
+
+    $("#pressure").html(data.main.pressure);
+    $("#humidity").html(data.main.humidity + "%");
+
+    // Wind - These properties are some times missing. Check for undefined before displaying them!
+    var windSpeed = data.wind.speed;
+    var windDeg = data.wind.deg;
+    var windGust = data.wind.gust;
+
+    var wind = windSpeed + " mph";
+    if (windDeg != undefined) {
+        wind += " " + windDeg + "&deg;";
+    }
+    if (windGust != undefined) {
+        wind += " " + windGust + " Gust"
+    }
+
+    $("#speed").html(wind);
+
+    $("#clouds").html(data.clouds.all);
+    $("#dt").html(new Date(data.dt * 1000).toDateString());
+    $("#sunrise").html(formatAMPM(new Date(data.sys.sunrise * 1000)));
+    $("#sunset").html(formatAMPM(new Date(data.sys.sunset * 1000)));
+    $("#location-name").html(data.name);
+
+    // Set background graient based on temp
+    // var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
+    // $("body").attr("style", backgroundCSS);
+
+    // ***** Load five day forecast *****
+    // Now that we have a location we can ask for a 5 day forecast.
+    loadFiveDayForecast(data.coord.lat, data.coord.lon);
+}
 
 // ----------------------------------------------------------------------
 // 
@@ -105,8 +120,8 @@ function loadData(city) {
 // ----------------------------------------------------------------------
 // Get the five day forecast for the lat and lon
 function loadFiveDayForecast(lat, lon) {
-    var path = "http://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+lon+"&appid="+apikey;
-    $.get(path, function(data) {
+    var path = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apikey;
+    $.get(path, function (data) {
         console.log("-------- Five Day --------");
         // console.log(data.list);
         var cityName = data.city.name;
@@ -115,9 +130,9 @@ function loadFiveDayForecast(lat, lon) {
         var html = "";
         for (var i = 0; i < data.list.length; i++) {
             var obj = {};
-            
+
             obj.clouds = data.list[i].clouds.all;
-            obj.dt =  new Date(data.list[i].dt * 1000).toDateString()+" "+formatAMPM(new Date(data.list[i].dt * 1000));
+            obj.dt = new Date(data.list[i].dt * 1000).toDateString() + " " + formatAMPM(new Date(data.list[i].dt * 1000));
             obj.temp = kToF(data.list[i].main.temp);
             obj.temp_min = kToF(data.list[i].main.temp_min);
             obj.temp_max = kToF(data.list[i].main.temp_max);
@@ -130,13 +145,13 @@ function loadFiveDayForecast(lat, lon) {
             obj.windSpeed = data.list[i].wind.speed;
             obj.windDeg = data.list[i].wind.deg;
             list.push(obj);
-            html += "<div class='three-hr'><span>"+
-                obj.dt+"</span> <span>"+
-                obj.temp+"&deg;</span> <div><span>Humidity: "+
-                obj.humidity+"%</span> <span>"+
-                obj.description+"</span></div></div>";
-        } 
-        
+            html += "<div class='three-hr'><span>" +
+                obj.dt + "</span> <span>" +
+                obj.temp + "&deg;</span> <div><span>Humidity: " +
+                obj.humidity + "%</span> <span>" +
+                obj.description + "</span></div></div>";
+        }
+
         $("#five-day-forecast").html(html);
     });
 }
@@ -155,7 +170,7 @@ $("#city-form").submit(function (event) {
     console.log("City form Submit");
     var city = $("#city-input").val();
     $(".city-form-container").removeClass("show");
-    loadData(city);
+    loadWeatherForCity(city);
 });
 
 // Handle the Save city button (looks like a heart)
@@ -169,6 +184,28 @@ $("#save-city-button").click(function (event) {
 $("#location-button").click(function () {
     $(".city-form-container").addClass("show");
 });
+
+
+// Check for Geo Location 
+if ("geolocation" in navigator) {
+    /* geolocation is available */
+    console.log("Geo Location Available");
+    $(".right-alert-button").html("Use Location");
+} else {
+    /* geolocation IS NOT available */
+    console.log("Geo Location Unavailable");
+    $(".right-alert-button").html("Cancel");
+}
+
+$(".right-alert-button").click(function (event) {
+    event.preventDefault();
+    console.log("Right alert button");
+    $(".city-form-container").removeClass("show");
+    if ("geolocation" in navigator) {
+        loadWeatherForLocation();
+    }
+});
+
 // ------------------------------------------------------------------
 
 
@@ -247,18 +284,18 @@ function kToC(t, decimals) {
 
 //******************************************
 // Prevent scroll on mobile
-$(document).on('touchmove', function(event) {
+$(document).on('touchmove', function (event) {
     event.preventDefault();
     console.log("touch move");
 });
 
-$(document).on('touchstart', function(event){
+$(document).on('touchstart', function (event) {
     console.log("touch start");
 });
 
-$(document).on('touchend', function(event){
+$(document).on('touchend', function (event) {
     console.log("touch end!");
-    
+
 });
 
 
@@ -339,10 +376,3 @@ function generateBackground(minTemp, maxTemp, currentTemp) {
 
     return cssStr;
 }
-
-
-
-
-
-
-

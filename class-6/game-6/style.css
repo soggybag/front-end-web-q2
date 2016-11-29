@@ -38,3 +38,15 @@
 .front {
     background-color: #000;
 }
+
+
+
+
+body {
+    background: 
+        url(images/shape-1.svg) repeat-y 0px 0px, 
+        url(images/shape-2.svg) repeat-y 200px 0px,
+        url(images/shape-3.svg) repeat-y 400px 0px;
+}
+
+

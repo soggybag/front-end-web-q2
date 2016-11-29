@@ -54,24 +54,16 @@ Students will logic and features to their web projects with JavaScript.
         - Feedback and review
         - User testing
         -
-- Section 2 - HTML and CSS
-    - Class 4 -
-        - CSS Flexbox grids
-        - Using type styles from sketch
+- Section 2 - 
+    - Class 4 - 
         -
-    - Class 5 -
-        - CSS Transition
-        - Custom Fonts and Font Awesome
+    - Class 5 - 
         -
-    - Class 6 -
-        - Sass
-        -
-        -
-- Section 3 - JavaScript and jQuery
-    - Class 7 -
-        -
-        -
-        -
+    - Class 6 - Work on Weather app
+        - 
+- Section 3 - 
+    - Class 7 - SASS 
+        - 
     - Class 8 -
         -
         -
@@ -92,15 +84,6 @@ Students will logic and features to their web projects with JavaScript.
 33% Expeditionary
 
 Three topics per class session
-
-
-
-
-
-
-
-
-
 
 # Possible class ideas session 2 or 3...
 
