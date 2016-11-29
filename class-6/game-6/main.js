@@ -56,48 +56,6 @@ resetGame();
 // -----------------------------------------------
 
 
-// Runs here!
-
-var thing = "hello World"
-(function(thing){
-    
-    
-    return 
-})()
-
-
-
-for (var i = 0; i < 10; i++) {
-    console.log(i)
-}
-
-console.log("i = " + i);
-
-
-
-
-{
-    const k = 0
-    let x = 88
-}
-
-console.log("x = "+x)
-
-function MyClass(name) {
-    this.name = name;
-    this.number = 99
-    this.hello = function () {
-        console.log(this.name, this.number)
-    }
-}
-
-var mc = new MyClass("Wibbly"); 
-// {name:"", number: 99, hello: function(){...}}
-mc.hello();
-mc.name = ""
-mc.thing = "Whatevah"
-
-
 // This function represents a JS class object. 
 // Objects made from this class represent tiles on the game board. 
 function Tile(value, color, element, icon) {
