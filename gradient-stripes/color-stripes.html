@@ -1,7 +1,15 @@
-<script src="https://code.jquery.com/jquery-3.1.1.min.js">
+<style>
+    body, html {
+        height: 100%;
+    }
+</style>
+
+<body>
+    
+</body>
 
 
-</script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
     // Generate an array of colors
     var colors = [];
@@ -30,4 +38,6 @@
     }
 
     $("body").attr("style", makeStripesFromColors(colors, 33));
+    
+    console.log(makeStripesFromColors(colors, 33));
 </script>
