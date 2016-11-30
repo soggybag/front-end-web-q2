@@ -275,3 +275,10 @@ body.no-weather .hide-when-empty {
 }
 
 
+thing {
+    /* Rectangle 2: */
+    background-image: -webkit-linear-gradient(#FF0000 0%, #FF0000 50%, #FFFF00 50%, #FEFF00 100%);
+    background-image: -o-linear-gradient(#FF0000 0%, #FF0000 50%, #FFFF00 50%, #FEFF00 100%);
+    background-image: linear-gradient(#FF0000 0%, #FF0000 50%, #FFFF00 50%, #FEFF00 100%);
+}
+
