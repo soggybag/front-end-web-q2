@@ -1,0 +1,33 @@
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
+
+
+</script>
+<script>
+    // Generate an array of colors
+    var colors = [];
+    var step = 360 / 16;
+    for (var i = 0; i < 16; i++) {
+        var hue = i * step;
+        colors.push("hsl(" + hue + ", 100%, 80%)");
+    }
+
+    function makeStripesFromColors(colors, angle) {
+        var gradStr = "";
+        var step = 100 / colors.length;
+        for (var i = 0; i < colors.length; i++) {
+            var color = colors[i];
+            var start = i * step;
+            var end = (i + 1) * step;
+            var str = " " + color + " " + start + "%, " + color + " " + end + "%,";
+            gradStr += str;
+        }
+
+        gradStr = gradStr.slice(0, -1);
+
+
+
+        return "background-image: -webkit-linear-gradient(" + angle + "deg, " + gradStr + ");" + "background-image: -o-linear-gradient(" + angle + "deg, " + gradStr + ");" + "background-image: linear-gradient(" + angle + "deg, " + gradStr + ");";
+    }
+
+    $("body").attr("style", makeStripesFromColors(colors, 33));
+</script>

@@ -12,19 +12,19 @@ var colors = [];
 var step = 360 / 16;
 for (var i = 0; i < 16; i++) {
     var hue = i * step;
-    colors.push("hsl("+hue+", 100%, 80%)");
+    colors.push("hsl(" + hue + ", 100%, 80%)");
 }
 
 // Generate an array of image names
 var icons = [];
 for (var i = 1; i <= 16; i++) {
-    icons.push("shape-"+i+".svg");
+    icons.push("shape-" + i + ".svg");
 }
 
 colorIcons = []
 for (var i = 0; i < 16; i++) {
     colorIcons.push({
-        value:i, 
+        value: i,
         color: colors[i],
         icon: icons[i]
     });
@@ -32,7 +32,7 @@ for (var i = 0; i < 16; i++) {
 
 // This array will hold game objects each of which represents a tile on the board.
 var tileArray = [];
-var firstPick = undefined;  // *** Keep track of the first pick. 
+var firstPick = undefined; // *** Keep track of the first pick. 
 
 
 
@@ -43,8 +43,8 @@ var firstPick = undefined;  // *** Keep track of the first pick.
 // -----------------------------------------------
 
 // Call these two methods to setup and start the game.
-makeBoard();        // Make all of the game tiles
-setupGameObjects();  // Setup and handle click events on squares. 
+makeBoard(); // Make all of the game tiles
+setupGameObjects(); // Setup and handle click events on squares. 
 resetGame();
 
 
@@ -59,20 +59,20 @@ resetGame();
 // This function represents a JS class object. 
 // Objects made from this class represent tiles on the game board. 
 function Tile(value, color, element, icon) {
-    this.isOpen = false;        // determines whether a tile is open or closed
-    this.value = value;         // holds the index of a tile
-    this.tileElement = element;     // holds a refernce to the DOM element of this tile
+    this.isOpen = false; // determines whether a tile is open or closed
+    this.value = value; // holds the index of a tile
+    this.tileElement = element; // holds a refernce to the DOM element of this tile
     this.backElement = $(element).find(".back");
     this.icon = icon;
-    
-    this.setColor = function(color) {
+
+    this.setColor = function (color) {
         this.color = color;
         this.backElement.css({
-            backgroundColor:color, 
-            backgroundImage: "url(images/"+icon+")"
+            backgroundColor: color,
+            backgroundImage: "url(images/" + icon + ")"
         });
     }
-    
+
     this.setColor(color);
 }
 
@@ -83,7 +83,7 @@ function makeBoard() {
     for (var i = 0; i < 16; i++) {
         boardHtml += makeBox();
     }
-    
+
     $("#game").html(boardHtml);
 }
 
@@ -100,10 +100,10 @@ function setupGameObjects() {
     // Randomize pairs
     array = randomizeArray(array);
     // Loop through all tiles, these all have the class name .box
-    $(".box").each(function(i) {
+    $(".box").each(function (i) {
         tileArray.push(new Tile(array[i].value, array[i].color, this, array[i].icon));
         // Add a click event
-        $(this).click(function(event){
+        $(this).click(function (event) {
             clickTile(i);
         });
     });
@@ -112,10 +112,10 @@ function setupGameObjects() {
 
 function clickTile(index) {
     var tile = tileArray[index];
-    if (tile.isOpen === false ) {
+    if (tile.isOpen === false) {
         tile.isOpen = true;
         $(tile.tileElement).addClass("open");
-        
+
         if (firstPick === undefined) {
             console.log("First pick");
             firstPick = tile;
@@ -131,7 +131,7 @@ function clickTile(index) {
             tile.isOpen = false;
             var a = firstPick.tileElement;
             var b = tile.tileElement;
-            setTimeout(function() {
+            setTimeout(function () {
                 $(a).removeClass("open");
                 $(b).removeClass("open");
             }, 300);
@@ -146,7 +146,7 @@ function checkForGameOver() {
 }
 
 
-$("#reset").click(function() {
+$("#reset").click(function () {
     resetGame();
 });
 
@@ -167,9 +167,9 @@ function resetGame() {
         tileArray[i].isOpen = false;
         $(tileArray[i].tileElement).removeClass("open");
     }
-    
+
     // Wait for tiles to close then change the colors
-    setTimeout(function(){
+    setTimeout(function () {
         for (var i in tileArray) {
             tileArray[i].icon = array[i].icon;
             tileArray[i].setColor(array[i].color);
@@ -203,3 +203,25 @@ function randomizeArray(array) {
 
     return newArray;
 }
+
+
+
+function makeStripesFromColors(colors, angle) {
+    var gradStr = "";
+    var step = 100 / colors.length;
+    for (var i = 0; i < colors.length; i++) {
+        var color = colors[i];
+        var start = i * step;
+        var end = (i + 1) * step;
+        var str = " " + color + " " + start + "%, " + color + " " + end + "%,";
+        gradStr += str;
+    }
+
+    gradStr = gradStr.slice(0, -1);
+    
+    
+
+    return "background-image: -webkit-linear-gradient(" + angle + "deg, " + gradStr + ");" + "background-image: -o-linear-gradient(" + angle + "deg, " + gradStr + ");" + "background-image: linear-gradient(" + angle + "deg, " + gradStr + ");";
+}
+
+$("body").attr("style", makeStripesFromColors(colors, 33));

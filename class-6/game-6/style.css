@@ -1,3 +1,7 @@
+body, html {
+    height: 100%;
+}
+
 #game, .wrapper {
     width: 440px;
     height: 440px;
