@@ -1,12 +1,21 @@
-/* 
-    I used Koala for compiling 
-    http://koala-app.com
+//
+//    I used Koala for compiling 
+//    http://koala-app.com
+//
+//    Define variables
+//    Use this for vlaues that appear more than once
+//    Values that you need easy access to
+//    Thing you intend to change
+//
+//    Good article on applying DRY principles to your CSS through SASS
+//    http://alistapart.com/article/dry-ing-out-your-sass-mixins
+//
+//    You can also adjust colors through SASS
+//    https://robots.thoughtbot.com/controlling-color-with-sass-color-functions
+//
+//    These comments will NOT appear in compiled CSS. 
+// 
 
-    Define variables
-    Use this for vlaues that appear more than once
-    Values that you need easy access to
-    Thing you intend to change
-*/
 
 $font-stack: Helvetica, sans-serif;
 $color-a: #ddd;
@@ -52,6 +61,13 @@ body, html {
     width: ($box-size + ($box-margin * 2)) * $cols;
     height: ($box-size + ($box-margin * 2)) * $cols;
     margin: auto;
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .box {
