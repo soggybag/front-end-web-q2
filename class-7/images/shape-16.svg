@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="162px" height="162px" viewBox="0 0 162 162" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>shape-16</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M56.3059942,65.0303449 L56.3059942,39.0087739 C56.3059942,28.510518 64.8102768,20 75.3059942,20 C85.7994045,20 94.3059942,28.5067907 94.3059942,39.0087739 L94.3059942,65.0303449 L116.841336,78.0411304 C125.933092,83.2902583 129.051276,94.910442 123.803417,104 C118.556712,113.08756 106.93632,116.201087 97.8413357,110.950096 L75.3059942,97.9393102 L52.7706527,110.950096 C43.6788964,116.199224 32.0564303,113.089558 26.8085716,104 C21.5618665,94.9124402 24.6756685,83.292122 33.7706527,78.0411304 L56.3059942,65.0303449 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="102.091416" height="93.5018044" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="shape-16" transform="translate(6.000000, 6.000000)" stroke="#000000">
+            <g id="Oval-5" stroke-width="11">
+                <circle cx="75" cy="75" r="75"></circle>
+            </g>
+            <use id="Rectangle-4" mask="url(#mask-2)" stroke-width="10" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,119 @@
+/* 
+    I used Koala for compiling 
+    http://koala-app.com
+
+    Define variables
+    Use this for vlaues that appear more than once
+    Values that you need easy access to
+    Thing you intend to change
+*/
+/* Eric Meyer's CSS Reset
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   This is a Sass partial
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Imports _reset.scss */
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #444; }
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0 0 24px 0; }
+
+a {
+  text-decoration: none;
+  color: #f0f; }
+
+body, html {
+  height: 100%; }
+
+#game, .wrapper {
+  width: 488px;
+  height: 488px;
+  margin: auto; }
+
+.box {
+  width: 120px;
+  height: 120px;
+  margin: 1px;
+  float: left;
+  position: relative;
+  overflow: hidden; }
+
+/* Change Hover to  */
+.box.open .inner-box, .box.locked .inner-box {
+  top: -120px; }
+
+.inner-box {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  transition: 200ms; }
+
+.front,
+.back {
+  width: 120px;
+  height: 120px;
+  background-position: center;
+  background-size: 90%;
+  background-repeat: no-repeat; }
+
+.front {
+  background-color: #000; }
+
+body {
+  /*background: 
+      url(images/shape-1.svg) repeat-y 0px 0px, 
+      url(images/shape-2.svg) repeat-y 200px 0px,
+      url(images/shape-3.svg) repeat-y 400px 0px;*/ }
+
+/*# sourceMappingURL=style.css.map */

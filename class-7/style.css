@@ -1,0 +1,56 @@
+body, html {
+    height: 100%;
+}
+
+#game, .wrapper {
+    width: 440px;
+    height: 440px;
+    margin: auto;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Change Hover to  */
+.box.open .inner-box, .box.locked .inner-box {
+    top: -100px;
+}
+
+.inner-box {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    transition: 200ms;
+}
+
+.front,
+.back {
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+}
+
+.front {
+    background-color: #000;
+}
+
+
+
+
+body {
+    background: 
+        url(images/shape-1.svg) repeat-y 0px 0px, 
+        url(images/shape-2.svg) repeat-y 200px 0px,
+        url(images/shape-3.svg) repeat-y 400px 0px;
+}
+
+

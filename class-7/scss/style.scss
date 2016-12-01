@@ -1,0 +1,104 @@
+/* 
+    I used Koala for compiling 
+    http://koala-app.com
+
+    Define variables
+    Use this for vlaues that appear more than once
+    Values that you need easy access to
+    Thing you intend to change
+*/
+
+$font-stack: Helvetica, sans-serif;
+$color-a: #ddd;
+$color-b: #444;
+$color-c: #f0f;
+$font-size: 18px;
+$line-height: 24px;
+
+@import 'reset'; /* Imports _reset.scss */
+
+body {
+    font-family: $font-stack;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color-b;
+}
+
+h1 {
+    font-size: $font-size * 2;
+    line-height: $line-height * 2;
+    margin: 0 0 $line-height 0;
+}
+
+a {
+    text-decoration: none;
+    color: $color-c;
+}
+
+
+
+
+
+$box-size: 120px;
+$box-margin: 1px;
+$cols: 4;
+
+
+body, html {
+    height: 100%;
+}
+
+#game, .wrapper {
+    width: ($box-size + ($box-margin * 2)) * $cols;
+    height: ($box-size + ($box-margin * 2)) * $cols;
+    margin: auto;
+}
+
+.box {
+    width: $box-size;
+    height: $box-size;
+    margin: $box-margin;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Change Hover to  */
+.box.open .inner-box, .box.locked .inner-box {
+    top: -$box-size;
+}
+
+.inner-box {
+    position: absolute;
+    top: 0;
+    width: $box-size;
+    height: $box-size;
+    transition: 200ms;
+}
+
+.front,
+.back {
+    width: $box-size;
+    height: $box-size;
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+}
+
+.front {
+    background-color: #000;
+}
+
+
+
+
+body {
+    /*background: 
+        url(images/shape-1.svg) repeat-y 0px 0px, 
+        url(images/shape-2.svg) repeat-y 200px 0px,
+        url(images/shape-3.svg) repeat-y 400px 0px;*/
+}
+
+
+
+

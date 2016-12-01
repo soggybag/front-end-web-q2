@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="162px" height="162px" viewBox="0 0 162 162" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>shape-3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="shape-3" transform="translate(6.000000, 6.000000)" stroke="#000000">
+            <g id="Oval-5" stroke-width="11">
+                <circle cx="75" cy="75" r="75"></circle>
+            </g>
+            <path d="M76.5389192,110.71401 L53.9168471,120.085439 C46.7708703,123.045735 41.4701005,119.194869 42.0773079,111.483511 L43.9994617,87.0727107 L28.0960984,68.4537724 C23.072462,62.5723261 25.096825,56.3410115 32.6184,54.5355592 L56.4284285,48.8202841 L69.2216816,27.9417185 C73.2628803,21.3464895 79.8147753,21.346191 83.8561569,27.9417185 L96.64941,48.8202841 L120.459438,54.5355592 C127.980673,56.3409298 130.005604,62.5720599 124.98174,68.4537724 L109.078377,87.0727107 L111.000531,111.483511 C111.60771,119.19452 106.307292,123.045869 99.1609914,120.085439 L76.5389192,110.71401 Z" id="Star" stroke-width="5"></path>
+        </g>
+    </g>
+</svg>
