@@ -150,14 +150,17 @@ $("#reset").click(function () {
     resetGame();
 });
 
+
+
 function resetGame() {
     // Randomize the source array
-    var randomArray = randomizeArray(colorIcons);
+    var randomShapeArray = randomizeArray(colorIcons);
+    
     // Create an array of pairs
     var array = [];
     for (var i = 0; i < 8; i++) {
-        array.push(randomArray[i]);
-        array.push(randomArray[i]);
+        array.push(randomShapeArray[i]);
+        array.push(randomShapeArray[i]);
     }
     // Randomize pairs
     array = randomizeArray(array);

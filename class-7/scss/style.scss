@@ -1,120 +1,51 @@
-//
-//    I used Koala for compiling 
-//    http://koala-app.com
-//
-//    Define variables
-//    Use this for vlaues that appear more than once
-//    Values that you need easy access to
-//    Thing you intend to change
-//
-//    Good article on applying DRY principles to your CSS through SASS
-//    http://alistapart.com/article/dry-ing-out-your-sass-mixins
-//
-//    You can also adjust colors through SASS
-//    https://robots.thoughtbot.com/controlling-color-with-sass-color-functions
-//
-//    These comments will NOT appear in compiled CSS. 
-// 
+$color-a: #f00;
+$color-b: #ff0;
+$color-c: #0f0;
+$color-d: #0ff;
+$color-e: #00f;
+$color-f: #f0f;
 
+$font-name: Helvetica;
 
-$font-stack: Helvetica, sans-serif;
-$color-a: #ddd;
-$color-b: #444;
-$color-c: #f0f;
-$font-size: 18px;
-$line-height: 24px;
+$width: 100px;
+$margin: 10px;
+$cols: 3;
 
-@import 'reset'; /* Imports _reset.scss */
 
 body {
-    font-family: $font-stack;
-    font-size: $font-size;
-    line-height: $line-height;
-    color: $color-b;
-}
-
-h1 {
-    font-size: $font-size * 2;
-    line-height: $line-height * 2;
-    margin: 0 0 $line-height 0;
-}
-
-a {
-    text-decoration: none;
-    color: $color-c;
-}
-
-
-
-
-
-$box-size: 120px;
-$box-margin: 1px;
-$cols: 4;
-
-
-body, html {
-    height: 100%;
-}
-
-#game, .wrapper {
-    width: ($box-size + ($box-margin * 2)) * $cols;
-    height: ($box-size + ($box-margin * 2)) * $cols;
-    margin: auto;
-}
-
-.wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 12px #000;
+    // Use a variable 
+    font-family: $font-name;
 }
 
 .box {
-    width: $box-size;
-    height: $box-size;
-    margin: $box-margin;
+    // use a few variables
+    width: $width;
+    height: $width;
+    background-color: $color-a;
+    margin: $margin;
     float: left;
-    position: relative;
-    overflow: hidden;
 }
 
-/* Change Hover to  */
-.box.open .inner-box, .box.locked .inner-box {
-    top: -$box-size;
-}
-
-.inner-box {
-    position: absolute;
-    top: 0;
-    width: $box-size;
-    height: $box-size;
-    transition: 200ms;
-}
-
-.front,
-.back {
-    width: $box-size;
-    height: $box-size;
-    background-position: center;
-    background-size: 90%;
-    background-repeat: no-repeat;
-}
-
-.front {
-    background-color: #000;
+// Do some tricky maths with variables 
+.container {
+    width: ($width + $margin * 2) * $cols;
+    margin: auto;
 }
 
 
-
-
-body {
-    /*background: 
-        url(images/shape-1.svg) repeat-y 0px 0px, 
-        url(images/shape-2.svg) repeat-y 200px 0px,
-        url(images/shape-3.svg) repeat-y 400px 0px;*/
+// Loop through 9 to 0
+$i: 9;
+@while $i > 0 {
+    // Make a rule that selects nth-child(i)
+    // Must interpolate a variable in #{} to use in selector
+  .box:nth-child(#{$i}) { 
+      // Divide the color wheel into 9 parts
+      background-color: hsl(360 / 9 * $i, 100%, 50%);
+    }
+  $i: $i - 1;
 }
+
+
 
 
 
