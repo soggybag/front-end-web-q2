@@ -65,15 +65,13 @@ function Tile(value, color, element, icon) {
     this.backElement = $(element).find(".back");
     this.icon = icon;
 
-    this.setColor = function (color) {
-        this.color = color;
+    this.reset = function() {
+        console.log("Set color: ", this.value, this.icon, this.color);
         this.backElement.css({
-            backgroundColor: color,
-            backgroundImage: "url(images/" + icon + ")"
+            backgroundColor: this.color,
+            backgroundImage: "url(images/" + this.icon + ")"
         });
     }
-
-    this.setColor(color);
 }
 
 
@@ -175,7 +173,9 @@ function resetGame() {
     setTimeout(function () {
         for (var i in tileArray) {
             tileArray[i].icon = array[i].icon;
-            tileArray[i].setColor(array[i].color);
+            tileArray[i].color = array[i].color;
+            tileArray[i].value = array[i].value;
+            tileArray[i].reset();
         }
     }, 300);
 }
@@ -228,3 +228,4 @@ function makeStripesFromColors(colors, angle) {
 }
 
 $("body").attr("style", makeStripesFromColors(colors, 33));
+$("#reset").attr("style", makeStripesFromColors(colors, 66));
