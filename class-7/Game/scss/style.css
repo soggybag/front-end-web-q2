@@ -111,8 +111,9 @@ body, html {
 #reset {
   border: none;
   border-radius: 10px;
-  box-shadow: 60px;
-  padding: 1em; }
+  box-shadow: 0 0 6px #000;
+  padding: 1em;
+  margin: 1em; }
 
 body {
   /*background: 
