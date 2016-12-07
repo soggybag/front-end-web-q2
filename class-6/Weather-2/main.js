@@ -270,6 +270,21 @@ function formatAMPM(date) {
     return strTime;
 }
 
+function getDayFor(date)  {
+    var days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+    var dayIndex = date.getDay();
+    return days[dayIndex];
+}
+
+var d = new Date();
+console.log(d);
+console.log(getTimeFrom(d));
+console.log(formatAMPM(d));
+console.log(getDayFor(d));
+
+
+
+
 // Convert temp kelvin to Fahrenheit
 function kToF(t, decimals) {
     // Do some math and round to two decimal places.
