@@ -10,6 +10,10 @@ As is the app has a few features of interest.
 - Gets the geo location vis JS with [navigator.geolocation.getCurrentPosition](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation)
 - Stores a city location with local storage. 
 
+# Example
+
+![screenshot.gif](screenshot-gif)
+
 
 ## Dependencies
 
