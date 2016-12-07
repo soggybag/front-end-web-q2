@@ -1,0 +1,55 @@
+<script>
+    /*
+        
+        Some functions to help work with dates. Each function takes a JS Date object and returns 
+        a string formatted date. 
+        
+        */
+
+    // Adds a 0 in front of a digit if it is a single digit. 
+    // Use this for writing the time as 09:03
+    function padWithZero(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+    // Get the time formatted from a date object. 
+    // 06:05:09
+    function getTimeFrom(date) {
+        // Get hours, minutes, and seconds. 
+        // Pad with 0 and return a string
+        var h = padWithZero(date.getHours());
+        var m = padWithZero(date.getMinutes());
+        var s = padWithZero(date.getSeconds());
+        return h + ":" + m + ":" + s;
+    }
+
+
+    // A couple functions to format dates 
+    // 09:08:05 am
+    function formatAMPM(date) {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return strTime;
+    }
+
+    // 
+    function getDayFor(date) {
+        var days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+        var dayIndex = date.getDay();
+        return days[dayIndex];
+    }
+
+    var d = new Date();
+    console.log(d);
+    console.log(getTimeFrom(d));
+    console.log(formatAMPM(d));
+    console.log(getDayFor(d));
+</script>

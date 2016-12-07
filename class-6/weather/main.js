@@ -48,10 +48,10 @@ function loadWeatherForLocation() {
 
 function loadWeather(data) {
     // Make a path with the city and api key
-
+    
     // Print the data to console. Go look at it right now!
     console.log(data);
-
+    
     // Check for errors
     if (data.cod == 200) {
         // COD = 200 and everything is okay.
@@ -87,8 +87,8 @@ function loadWeather(data) {
     var windSpeed = data.wind.speed;
     var windDeg = data.wind.deg;
     var windGust = data.wind.gust;
-
-    var wind = windSpeed + " mph";
+    
+    var wind = Math.round(windSpeedIn(windSpeed)) + " mph";
     if (windDeg != undefined) {
         wind += " " + windDeg + "&deg;";
     }
@@ -103,6 +103,7 @@ function loadWeather(data) {
     $("#sunrise").html(formatAMPM(new Date(data.sys.sunrise * 1000)));
     $("#sunset").html(formatAMPM(new Date(data.sys.sunset * 1000)));
     $("#location-name").html(data.name);
+    savedCity = data.name;
 
     // Set background graient based on temp
     // var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
@@ -276,12 +277,6 @@ function getDayFor(date) {
     return days[dayIndex];
 }
 
-var d = new Date();
-console.log(d);
-console.log(getTimeFrom(d));
-console.log(formatAMPM(d));
-console.log(getDayFor(d));
-
 
 
 
@@ -294,6 +289,12 @@ function kToF(t, decimals) {
 // Convert temp Kelvin to Celsius 
 function kToC(t, decimals) {
     return (t - 273.15).toFixed(decimals);
+}
+
+// Convert Meters per second to miles per hour.
+// Use this for wind speed which defaults to meters per second. 
+function windSpeedIn(metersPersecond) {
+    return metersPersecond * 2.23694;
 }
 
 
@@ -312,14 +313,18 @@ $(document).on('touchend', function (event) {
     console.log("touch end!");
 
 });
+// -----------------------------------------------------------------
 
 
 
 
 
 
-
-
+// -----------------------------------------------------------------
+// 
+// Generates a background gradient for temp values (sort of...)
+// 
+// ----------------------------------------------------------------- 
 
 // ****************************************************************************
 // Unsuccesful attempt to convert temp to color values and generate a gradient. 
@@ -329,6 +334,8 @@ $(document).on('touchend', function (event) {
 // Start with a temperature, in Kelvin, somewhere between 1000 and 40000.  (Other values may work,
 //  but I can't make any promises about the quality of the algorithm's estimates above 40000 K.)
 
+// Supposed to generate a color values for a temp in Kelvin
+// Returns an object with RGB propererties. 
 function colorTemperatureToRGB(kelvin) {
     var temp = kelvin / 1;
     var red, green, blue;
@@ -359,6 +366,7 @@ function colorTemperatureToRGB(kelvin) {
     }
 }
 
+// Helper function clamps value x to a min and max range. 
 function clamp(x, min, max) {
     if (x < min) {
         return min;
@@ -369,13 +377,12 @@ function clamp(x, min, max) {
     return x;
 }
 
-
-
+// Returns CSS string for rgb value. 
 function makeRGBACSSStr(rgb) {
     return "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + ",1)";
 }
 
-// Generate Background Gradient
+// Generate CSS string Gradient for three color values
 function generateBackground(minTemp, maxTemp, currentTemp) {
     var minRGB = colorTemperatureToRGB(1) //Number(minTemp));
     var midRGB = colorTemperatureToRGB(60) //currentTemp);
@@ -391,6 +398,9 @@ function generateBackground(minTemp, maxTemp, currentTemp) {
 
     return cssStr;
 }
+// ----------------------------------------------------------------
+
+
 
 
 // ----------------------------------------
@@ -411,8 +421,7 @@ $(".wrapper").on('scroll', function () {
         }, 200);
     }, delay);
 });
-
-
+// ----------------------------------------
 
 
 
