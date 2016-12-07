@@ -1,0 +1,70 @@
+
+<style>
+    #box {
+        width: 400px;
+        height: 400px;
+        border: 1px solid #000;
+        background-image: -webkit-linear-gradient(282deg, #F00 0%, #FFF 100%);
+        background-image: -o-linear-gradient(282deg, #F00 0%, #FFF 100%);
+        background-image: linear-gradient(12deg, #F00 0%, #FFF 100%);
+    }
+</style>
+    
+
+    
+<div id="box"></div>
+   
+<form id="hour-form">
+    <p><input id="hour-input" type="number"></p>
+</form>
+    
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    
+    // Initialize
+    var date = new Date();
+    var hour = date.getHours();
+    var style = makeGradientForHour(hour);
+    $("#box").attr("style", style);
+    
+    
+    $("#hour-form").submit(function(event){
+        event.preventDefault();
+        // validate...
+        var style = makeGradientForHour($("#hour-input").val());
+        
+        $("#box").attr("style", style);
+    });
+
+    function makeGradientForHour(hour) {
+        console.log(hour);
+        var angle = 360 / 24 * Number(hour);
+        console.log(angle);
+        // TODO fix backwards linear-
+        /* Rectangle: */
+        return "background-image: -webkit-linear-gradient("+angle+"deg, #F00 0%, #FFF 100%);"
+        +"background-image: -o-linear-gradient("+angle+"deg, #F00 0%, #FFF 100%);"
+        +"background-image: linear-gradient("+angle+"deg, #F00 0%, #FFF 100%);";
+    }
+    
+    
+    function makeStripesFromColors(colors, angle) {
+        var gradStr = "";
+        var step = 100 / colors.length;
+        for (var i = 0; i < colors.length; i++) {
+            var color = colors[i];
+            var start = i * step;
+            var end = (i + 1) * step;
+            var str = " "+color+" "+start+"%, "+color+" "+end+"%,";
+            gradStr += str;
+        }
+        
+        gradStr = gradStr.slice(0, -1);
+        
+        return "background-image: -webkit-linear-gradient("+angle+"deg, "+gradStr+");"
+        +"background-image: -o-linear-gradient("+angle+"deg, "+gradStr+");"
+        +"background-image: linear-gradient("+angle+"deg, "+gradStr+");";
+    }
+    
+    $("body").attr("style", makeStripesFromColors(["#f00", "#0f0", "#00f","#ff0"], 33));
+</script>
