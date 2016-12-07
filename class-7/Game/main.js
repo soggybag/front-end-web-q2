@@ -65,7 +65,7 @@ function Tile(value, color, element, icon) {
     this.backElement = $(element).find(".back");
     this.icon = icon;
 
-    this.reset = function() {
+    this.reset = function () {
         console.log("Set color: ", this.value, this.icon, this.color);
         this.backElement.css({
             backgroundColor: this.color,
@@ -153,7 +153,7 @@ $("#reset").click(function () {
 function resetGame() {
     // Randomize the source array
     var randomShapeArray = randomizeArray(colorIcons);
-    
+
     // Create an array of pairs
     var array = [];
     for (var i = 0; i < 8; i++) {
@@ -221,11 +221,63 @@ function makeStripesFromColors(colors, angle) {
     }
 
     gradStr = gradStr.slice(0, -1);
-    
-    
+
+
 
     return "background-image: -webkit-linear-gradient(" + angle + "deg, " + gradStr + ");" + "background-image: -o-linear-gradient(" + angle + "deg, " + gradStr + ");" + "background-image: linear-gradient(" + angle + "deg, " + gradStr + ");";
 }
 
 $("body").attr("style", makeStripesFromColors(colors, 33));
 $("#reset").attr("style", makeStripesFromColors(colors, 66));
+
+
+
+
+(function () {
+    var d = 0; {
+        const count = 100;
+        let q = 0
+        for (q = 0; q < count; q++) {
+            console.log("q = " + q);
+        }
+    }
+
+    console.log("q = " + q);
+
+
+    function test() {
+        var x = 77;
+
+    }
+
+    // x = undefined 
+
+    {
+        w: "Hello"
+    }
+
+    {
+        let w = "Hello"
+    }
+
+    // w = undefined 
+})()
+
+console.log("q === "+q);
+
+
+
+function makeCounter() {
+    var count = 0;
+    return function() {
+        return count++;
+    }
+}
+
+var c1 = makeCounter();
+var c2 = makeCounter();
+
+
+
+
+
