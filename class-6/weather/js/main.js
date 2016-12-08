@@ -5,11 +5,14 @@
 // -----------------------------------------------------------------------
 // 
 // Load weather for the city saved in local storage, if there is a one...
-var savedCity = getCity();
+var savedCity = getCity();      // Get the city name saved to local storage
+var currentCity = undefined;    // This will hold the current city after we load data
+
 // Check this city if nothing was saved it should be undefined.
 if (savedCity != undefined) {
     // We saved a city load the weather!
     console.log("Loading Saved city:" + savedCity);
+    currentCity = savedCity;
     loadWeatherForCity(savedCity);
 } else {
     console.log("No saved city to load");
@@ -26,20 +29,21 @@ if (savedCity != undefined) {
 // 
 // ----------------------------------------------------------------------
 // Call this method with the city name to load weather for that city
-
 function loadWeatherForCity(city) {
     var path = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apikey;
     // Use jQuery to load JSON data.
     console.log("Loading Weather...");
-    // $.get(path, loadWeather);
+    // $.get(path, loadWeather); // Load data with the simple method
+    // Or use the ajax method to include error handling. 
     $.ajax({
         url: path,
         type: "get",
-        success: loadWeather,
-        error: weatherError
+        success: loadWeather,   // Handle weather data when loaded
+        error: weatherError     // Handle errors from the API
     });
 }
 
+// Load weather data by geo coordinates
 function loadWeatherForLocation() {
     navigator.geolocation.getCurrentPosition(function (position) {
         var lat = position.coords.latitude;
@@ -50,16 +54,18 @@ function loadWeatherForLocation() {
         $.ajax({
             url: path,
             type: "get",
-            success: loadWeather,
-            error: weatherError
+            success: loadWeather,   // Handle success
+            error: weatherError     // Handle an error from the API
         });
     });
 }
 
+// Handle errors 
 function weatherError(data) {
     // Handle server errors for weather.
+    // TODO: Show an error message 
     console.log("Weather service error:");
-    console.log(data);
+    console.log(data.responseJSON.cod, data.responseJSON.message);
 }
 
 function loadWeather(data) {
@@ -106,6 +112,7 @@ function loadWeather(data) {
     var windDeg = data.wind.deg;
     var windGust = data.wind.gust;
 
+    // Collect the wind data into a string for display
     var wind = Math.round(windSpeedIn(windSpeed)) + " mph";
     if (windDeg != undefined) {
         wind += " " + windDeg + "&deg;";
@@ -113,15 +120,21 @@ function loadWeather(data) {
     if (windGust != undefined) {
         wind += " " + windGust + " Gust"
     }
-
+    // Display the wind data
     $("#speed").html(wind);
-
+    // Display get clouds
     $("#clouds").html(data.clouds.all);
+    // Get dt, convert to js Date, then to date String for display.
     $("#dt").html(new Date(data.dt * 1000).toDateString());
+    // Format the sunrise and sunset with AM/PM time
     $("#sunrise").html(formatAMPM(new Date(data.sys.sunrise * 1000)));
     $("#sunset").html(formatAMPM(new Date(data.sys.sunset * 1000)));
+    // Display the location name
     $("#location-name").html(data.name);
-    savedCity = data.name;
+    // Set the current city to the name of the city just loaded
+    currentCity = data.name;
+    // Check if this is the saved city.
+    showSavedCity();    
 
     // Set background graient based on temp
     // var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
@@ -139,17 +152,21 @@ function loadWeather(data) {
 // ----------------------------------------------------------------------
 // Get the five day forecast for the lat and lon
 function loadFiveDayForecast(lat, lon) {
+    // Make a path to the API
     var path = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apikey;
     $.get(path, function (data) {
         console.log("-------- Five Day --------");
         // console.log(data.list);
+        // Collect some meta data 
         var cityName = data.city.name;
         var cityPop = data.city.sys.population;
-        var list = [];
+        // Define a string to display the 5 day 3 hour data as HTML.
         var html = "";
+        // Loop through all of 5 day 3 hour data. 
         for (var i = 0; i < data.list.length; i++) {
+            // For convenience collect the data into an object. 
             var obj = {};
-
+            // Here we collect all of the data, the example doesn't display everything.
             obj.clouds = data.list[i].clouds.all;
             obj.dt = new Date(data.list[i].dt * 1000).toDateString() + " " + formatAMPM(new Date(data.list[i].dt * 1000));
             obj.temp = kToF(data.list[i].main.temp);
@@ -163,23 +180,26 @@ function loadFiveDayForecast(lat, lon) {
             obj.shortDesc = data.list[i].weather[0].main;
             obj.windSpeed = data.list[i].wind.speed;
             obj.windDeg = data.list[i].wind.deg;
-            list.push(obj);
-            html += "<div class='three-hr'><span>" +
-                obj.dt + "</span> <span>" +
-                obj.temp + "&deg;</span> <div><span>Humidity: " +
-                obj.humidity + "%</span> <span>" +
-                obj.description + "</span></div></div>";
+            // Make an HTML string that displays one three hr forecast. 
+            html += "<div class='three-hr'><span>" +                // A wrapper
+                obj.dt + "</span> <span>" +                         // Date/Time
+                obj.temp + "&deg;</span> <div><span>Humidity: " +   // temp
+                obj.humidity + "%</span> <span>" +                  // humidity
+                obj.description + "</span></div></div>";            // description string
         }
-
+        // Display the aggregate 5 day 3 hour forecast
         $("#five-day-forecast").html(html);
     });
 }
+// ------------------------------------------------------------------
+
 
 
 
 // ------------------------------------------------------------------
 //
-// City Form and buttons
+// Handle UI stuff
+// These methods listen for form input and button clicks
 // 
 // ------------------------------------------------------------------
 
@@ -208,8 +228,8 @@ $("#location-button").click(function () {
     $(".city-form-container").addClass("show");
 });
 
-
-// Check for Geo Location 
+// Check for Geo Location. If geolocation is not available we change the label on the
+// "Use Location" button to "Cancel".
 if ("geolocation" in navigator) {
     /* geolocation is available */
     console.log("Geo Location Available");
@@ -220,6 +240,7 @@ if ("geolocation" in navigator) {
     $(".right-alert-button").html("Cancel");
 }
 
+// Click the right button in the city name alert. 
 $(".right-alert-button").click(function (event) {
     event.preventDefault();
     console.log("Right alert button");
@@ -229,7 +250,53 @@ $(".right-alert-button").click(function (event) {
     }
 });
 
+//******************************************
+// Prevent scroll on mobile
+$(document).on('touchmove', function (event) {
+    event.preventDefault();
+    console.log("touch move");
+});
+
+$(document).on('touchstart', function (event) {
+    console.log("touch start");
+});
+
+$(document).on('touchend', function (event) {
+    console.log("touch end!");
+
+});
 // ------------------------------------------------------------------
+
+
+
+
+
+
+// ----------------------------------------
+// 
+// Snap screen as they slide left and right
+// 
+// ----------------------------------------
+// We'll use this to snap the scrolling between the current weather and
+// five day forecast to one screen or the other. 
+var delay = 500;
+var timeout = null;
+$(".wrapper").on('scroll', function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+        var x = $(".wrapper").scrollLeft();
+        var w = $(".wrapper").width();
+        var newX = Math.round(x / w) * w;
+        $(".wrapper").animate({
+            scrollLeft: newX + "px"
+        }, 200);
+    }, delay);
+});
+// ----------------------------------------
+
+
+
+
 
 
 
@@ -243,12 +310,21 @@ $(".right-alert-button").click(function (event) {
 function saveCity(cityName) {
     // Save the cityName to local storage with the key: weather-app
     localStorage.setItem("weather-app", cityName);
+    showSavedCity(cityName);
 }
 
 // Get the city name from local starage for the key: weather-app
 function getCity() {
     // !!! This possibly returns null you must handle this!
     return localStorage.getItem("weather-app");
+}
+
+function showSavedCity() {
+    if (currentCity === savedCity) {
+        $("#saved-city-icon").attr("fill", "rgba(255,255,255,0.6)");   
+    } else {
+        $("#saved-city-icon").attr("fill", "none"); 
+    }
 }
 // ---------------------------------------------------------------
 
@@ -293,16 +369,14 @@ function formatAMPM(date) {
     return strTime;
 }
 
+// Get the day from a date. 
 function getDayFor(date) {
     var days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
     var dayIndex = date.getDay();
     return days[dayIndex];
 }
 
-
-
-
-// Convert temp kelvin to Fahrenheit
+// Convert temp kelvin to Fahrenheit.
 function kToF(t, decimals) {
     // Do some math and round to two decimal places.
     return (t * 9 / 5 - 459.67).toFixed(decimals);
@@ -318,26 +392,6 @@ function kToC(t, decimals) {
 function windSpeedIn(metersPersecond) {
     return metersPersecond * 2.23694;
 }
-
-
-//******************************************
-// Prevent scroll on mobile
-$(document).on('touchmove', function (event) {
-    event.preventDefault();
-    console.log("touch move");
-});
-
-$(document).on('touchstart', function (event) {
-    console.log("touch start");
-});
-
-$(document).on('touchend', function (event) {
-    console.log("touch end!");
-
-});
-// -----------------------------------------------------------------
-
-
 
 
 
@@ -421,26 +475,3 @@ function generateBackground(minTemp, maxTemp, currentTemp) {
     return cssStr;
 }
 // ----------------------------------------------------------------
-
-
-
-
-// ----------------------------------------
-// 
-// Snap screen as they slide left and right
-// 
-// ----------------------------------------
-var delay = 1000;
-var timeout = null;
-$(".wrapper").on('scroll', function () {
-    clearTimeout(timeout);
-    timeout = setTimeout(function () {
-        var x = $(".wrapper").scrollLeft();
-        var w = $(".wrapper").width();
-        var newX = Math.round(x / w) * w;
-        $(".wrapper").animate({
-            scrollLeft: newX + "px"
-        }, 200);
-    }, delay);
-});
-// ----------------------------------------
