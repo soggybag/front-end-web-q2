@@ -1,6 +1,3 @@
-// Register with openweathermap and get your API key.
-var apikey = "2854c5771899ff92cd962dd7ad58e7b0";
-
 // -----------------------------------------------------------------------
 // 
 // Initialize the app
@@ -33,7 +30,14 @@ if (savedCity != undefined) {
 function loadWeatherForCity(city) {
     var path = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apikey;
     // Use jQuery to load JSON data.
-    $.get(path, loadWeather);
+    console.log("Loading Weather...");
+    // $.get(path, loadWeather);
+    $.ajax({
+        url: path,
+        type: "get",
+        success: loadWeather,
+        error: weatherError
+    });
 }
 
 function loadWeatherForLocation() {
@@ -42,16 +46,30 @@ function loadWeatherForLocation() {
         var lon = position.coords.longitude;
         var path = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apikey;
         console.log("Load weather for location:" + lat + " " + lon);
-        $.get(path, loadWeather);
+        // $.get(path, loadWeather);
+        $.ajax({
+            url: path,
+            type: "get",
+            success: loadWeather,
+            error: weatherError
+        });
     });
+}
+
+function weatherError(data) {
+    // Handle server errors for weather.
+    console.log("Weather service error:");
+    console.log(data);
 }
 
 function loadWeather(data) {
     // Make a path with the city and api key
-    
+
     // Print the data to console. Go look at it right now!
+    console.log("-------------------------");
     console.log(data);
-    
+    console.log("-------------------------");
+
     // Check for errors
     if (data.cod == 200) {
         // COD = 200 and everything is okay.
@@ -59,7 +77,7 @@ function loadWeather(data) {
     } else {
         // Otherwise there was a problem hide UI stuff.
         $("body").addClass("no-weather");
-        return
+        return // end this function here!
     }
 
     // Collect values from the json data and display it in each of the divs above.
@@ -87,7 +105,7 @@ function loadWeather(data) {
     var windSpeed = data.wind.speed;
     var windDeg = data.wind.deg;
     var windGust = data.wind.gust;
-    
+
     var wind = Math.round(windSpeedIn(windSpeed)) + " mph";
     if (windDeg != undefined) {
         wind += " " + windDeg + "&deg;";
@@ -170,6 +188,10 @@ $("#city-form").submit(function (event) {
     event.preventDefault();
     console.log("City form Submit");
     var city = $("#city-input").val();
+    // Simple validation return if the field is empty
+    if (city == "") {
+        return;
+    }
     $(".city-form-container").removeClass("show");
     loadWeatherForCity(city);
 });
@@ -414,14 +436,11 @@ $(".wrapper").on('scroll', function () {
     clearTimeout(timeout);
     timeout = setTimeout(function () {
         var x = $(".wrapper").scrollLeft();
-        var w2 = $(".wrapper").width() / 2;
-        var newX = Math.round(x / w2) * w2;
+        var w = $(".wrapper").width();
+        var newX = Math.round(x / w) * w;
         $(".wrapper").animate({
             scrollLeft: newX + "px"
         }, 200);
     }, delay);
 });
 // ----------------------------------------
-
-
-
