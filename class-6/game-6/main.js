@@ -1,26 +1,47 @@
-// This example modifies the previous example to make use jQuery to save some effort. 
+/* 
+
+    This is a simple game to illustrate basic JavaScript Concepts:
+    
+    - Array 
+    - For loop
+    - Creating objects
+    - functions, parameters, returning values 
+    - If else
+    - Basic jQuery concepts
+        - Selecting elements
+        - Adding and removing class names from elements
+        - Setting attributes
+
+*/
 
 
 // -----------------------------------------------
-
 // Define some variables 
-
 // -----------------------------------------------
 
-// Generate an array of colors
+// Define an array to hold colors
 var colors = [];
+
+// Generate a rainbow of 16 colors  
 var step = 360 / 16;
+// Loop, generate colors in 16 hues
 for (var i = 0; i < 16; i++) {
     var hue = i * step;
+    // This string is a CSS color in Hue, Saturation, and Lightness
     colors.push("hsl(" + hue + ", 100%, 80%)");
 }
 
-// Generate an array of image names
+// Generate an array of image names. The images are in the images folder. 
+// Define an array to hold a list of image names
 var icons = [];
+// Loop and generate names shape-1.svg to shape-16.svg
 for (var i = 1; i <= 16; i++) {
     icons.push("shape-" + i + ".svg");
 }
 
+// The game needs a source of colors and icons. This will be an 
+// array of objects with three properties: value, color, and icon
+// Later we will randomize this array to play the game. 
 colorIcons = []
 for (var i = 0; i < 16; i++) {
     colorIcons.push({
@@ -32,39 +53,35 @@ for (var i = 0; i < 16; i++) {
 
 // This array will hold game objects each of which represents a tile on the board.
 var tileArray = [];
-var firstPick = undefined; // *** Keep track of the first pick. 
+var firstPick = undefined; // Keep track of the first pick. This is used when the game is in progress
 
 
 
 // -----------------------------------------------
-
 // Initialize the game 
-
 // -----------------------------------------------
 
 // Call these two methods to setup and start the game.
-makeBoard(); // Make all of the game tiles
+makeBoard();        // Make all of the game tiles
 setupGameObjects(); // Setup and handle click events on squares. 
 resetGame();
 
 
 
 // -----------------------------------------------
-
 // Game functions 
-
 // -----------------------------------------------
-
 
 // This function represents a JS class object. 
 // Objects made from this class represent tiles on the game board. 
 function Tile(value, color, element, icon) {
-    this.isOpen = false; // determines whether a tile is open or closed
-    this.value = value; // holds the index of a tile
+    this.isOpen = false;        // determines whether a tile is open or closed
+    this.value = value;         // holds the index of a tile
     this.tileElement = element; // holds a refernce to the DOM element of this tile
-    this.backElement = $(element).find(".back");
-    this.icon = icon;
+    this.backElement = $(element).find(".back"); // Find the element with class name back inside of element
+    this.icon = icon;           // The file name of the image to display on a tile
 
+    // The tile object has one method to set it's color. 
     this.setColor = function (color) {
         this.color = color;
         this.backElement.css({
