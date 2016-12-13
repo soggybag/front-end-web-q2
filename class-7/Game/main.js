@@ -219,11 +219,7 @@ function makeStripesFromColors(colors, angle) {
         var str = " " + color + " " + start + "%, " + color + " " + end + "%,";
         gradStr += str;
     }
-
     gradStr = gradStr.slice(0, -1);
-
-
-
     return "background-image: -webkit-linear-gradient(" + angle + "deg, " + gradStr + ");" + "background-image: -o-linear-gradient(" + angle + "deg, " + gradStr + ");" + "background-image: linear-gradient(" + angle + "deg, " + gradStr + ");";
 }
 

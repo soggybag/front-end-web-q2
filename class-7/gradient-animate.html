@@ -1,0 +1,73 @@
+<style>
+    @-webkit-keyframes move-background {
+        0% {
+            background-position: 0%;
+        }
+        100% {
+            background-position: 100%;
+        }
+    }
+    
+    @-moz-keyframes move-background {
+        0% {
+            background-position: 0%;
+        }
+        100% {
+            background-position: 100%;
+        }
+    }
+    
+    @-o-keyframes move-background {
+        0% {
+            background-position: 0%;
+        }
+        100% {
+            background-position: 100%;
+        }
+    }
+    
+    @keyframes move-background {
+        0% {
+            background-position: 0%;
+        }
+        100% {
+            background-position: 100%;
+        }
+    }
+    
+    body {
+        /* Rectangle: */
+        background-size: contain;
+        
+        background: -moz-linear-gradient(left, rgba(255, 176, 218, 1) 0%, rgba(239, 1, 124, 1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255, 176, 218, 1)), color-stop(100%, rgba(239, 1, 124, 1)));
+        background: -webkit-linear-gradient(left, rgba(255, 176, 218, 1) 0%, rgba(239, 1, 124, 1) 100%);
+        background: -o-linear-gradient(left, rgba(255, 176, 218, 1) 0%, rgba(239, 1, 124, 1) 100%);
+        background: -ms-linear-gradient(left, rgba(255, 176, 218, 1) 0%, rgba(239, 1, 124, 1) 100%);
+        background: linear-gradient(to right, rgba(255, 176, 218, 1) 0%, rgba(239, 1, 124, 1) 100%);
+        
+        -webkit-animation: move-background 5s infinite;
+        /* Safari 4+ */
+        -moz-animation: move-background 5s infinite;
+        /* Fx 5+ */
+        -o-animation: move-background 5s infinite;
+        /* Opera 12+ */
+        animation: move-background 5s infinite;
+        /* IE 10+, Fx 29+ */
+    }
+    
+    .screen {
+        width: 375px;
+        height: 667px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #000;
+    }
+</style>
+
+
+<div class="screen">
+
+</div>

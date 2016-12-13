@@ -29,7 +29,7 @@ Use CSS for layout, motion and interaction.
 - HTML
   - forms
 - CSS
-  - Flext box for layout
+  - Flex box for layout
   - Transitions for motion and interaction
 
 ##Section 3 - JavaScript

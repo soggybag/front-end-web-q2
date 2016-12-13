@@ -1,0 +1,123 @@
+<div id="app">
+
+</div>
+
+
+
+<!-- Weather Daily Template -->
+<script id="weather-template" type="text/x-handlebars-template">
+    
+    <ul>
+        {{#each this as |value key|}}
+          {{#each child as |childValue childKey|}} {{key}} - {{childKey}}. {{childValue}} 
+          {{/each}} 
+        {{/each}}
+    </ul>
+    
+    <hr>   
+    
+    <div>
+        <span>Timezone:{{timezone}}</span>
+        <span>Lattitude:{{latitude}}</span>
+        <span>Longitude:{{longitude}}</span>
+    </div>
+
+    <div class="currently">
+        <div>Apparent Temperature:{{currently.apparentTemperature}}</div>
+        <div>Cloud Cover:{{currently.cloudCover}}</div>
+        <div>Dew Point:{{currently.dewPoint}}</div>
+        <div>Humidity:{{currently.humidity}}</div>
+        <div>Icon:{{currently.icon}}</div>
+        <div>Storm Bearing:{{currently.nearestStormBearing}}</div>
+        <div>Storm Distance:{{currently.nearestStormDistance}}</div>
+        <div>Ozone:{{currently.ozone}}</div>
+        <div>Percip Intensity:{{currently.precipIntensity}}</div>
+        <div>Percip Probability:{{currently.precipProbability}}</div>
+        <div>Pressure:{{currently.pressure}}</div>
+        <div>Summary:{{currently.summary}}</div>
+        <div>Temperature:{{currently.temperature}}</div>
+        <div>Time:{{currently.time}}</div>
+        <div>Visiblity:{{currently.visibility}}</div>
+        <div>Wind Bearing:{{currently.windBearing}}</div>
+        <div>Wind Speed:{{currently.windSpeed}}</div>
+    </div>
+
+    <div class="daily">
+        <div>{{daily.icon}}</div>
+        <div>{{daily.summary}}</div>
+        <ul>
+            {{#each daily.data}}
+                <li>
+                    <div>{{apparentTemperatureMax}}</div>
+                    <div>{{apparentTemperatureMaxTime}}</div>
+                    <div>{{apparentTemperatureMin}}</div>
+                    <div>{{apparentTemperatureMinTime}}</div>
+                    <div>{{cloudCover}}</div>
+                    <div>{{dewPoint}}</div>
+                    <div>{{humidity}}</div>
+                    <div>{{icon}}</div>
+                    <div>{{moonPhase}}</div>
+                    <div>{{ozone}}</div>
+                    <div>{{precipIntensity}}</div>
+                    <div>{{precipIntensityMax}}</div>
+                    <div>{{precipIntensityMaxTime}}</div>
+                    <div>{{precipProbability}}</div>
+                    <div>{{precipType}}</div>
+                    <div>{{pressure}}</div>
+                    <div>{{summary}}</div>
+                    <div>{{sunriseTime}}</div>
+                    <div>{{sunsetTime}}</div>
+                    <div>{{temperatureMax}}</div>
+                    <div>{{temperatureMaxTime}}</div>
+                    <div>{{temperatureMin}}</div>
+                    <div>{{temperatureMaxTime}}</div>
+                    <div>{{time}}</div>
+                    <div>{{visibility}}</div>
+                    <div>{{windBearing}}</div>
+                    <div>{{windSpeed}}</div>
+                </li>
+            {{/each}}
+        </ul>
+        <div class="flags">
+            <div>
+               <ul>
+                    {{#each flags.darksky-stations}}
+                        <li>{{this}}</li>
+                    {{/each}}
+               </ul>
+               
+               <ul>
+                    {{#each flags.isd-stations}}
+                        <li>{{this}}</li>
+                    {{/each}}
+               </ul>
+               
+               <ul>
+                    {{#each flags.lamp-stations}}
+                        <li>{{this}}</li>
+                    {{/each}}
+               </ul>
+               
+               <ul>
+                    {{#each flags.madis-stations}}
+                        <li>{{this}}</li>
+                    {{/each}}
+               </ul>
+               
+               <ul>
+                    {{#each flags.sources}}
+                        <li>{{this}}</li>
+                    {{/each}}
+               </ul>
+               
+               <div>{{flags.units}}</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="js/handlebars-v4.0.5.js"></script>
+<script src="js/main.js"></script>

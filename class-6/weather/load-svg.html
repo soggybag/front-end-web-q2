@@ -1,0 +1,52 @@
+<style>
+    body {
+        background-color: #333;
+    }
+    
+</style>
+
+<div id="thing">
+    <!-- thing here -->
+</div>
+<div id="buttons"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script>
+    var buttons = "";
+    for (var i = 1; i < 5; i++) {
+        buttons += "<button>0"+i+"d.svg</button>";
+    }
+    $("#buttons").html(buttons);
+    
+    // $("selector").attr("name", "value");
+    // 
+    // $("selector").attr("transform", "translate("+x+"px, "+y+"px) rotate("+r+"deg)");
+    
+    
+    function loadSVG(name) {
+        $.get("weather-icons/"+name, function(data){
+            // console.log(data);
+            $("#thing").html(data);
+        });
+    }
+    
+    loadSVG("01d.svg");
+    
+    
+    $("body").on("click", "button", function(event){
+        var name = $(this).html();
+        loadSVG(name);
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
