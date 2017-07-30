@@ -24,6 +24,7 @@ function getLocation() {
 function getWeather(lat, lon) {
     $.get(path+lat+","+lon, function (data) {
         console.log(data);
+        console.log(JSON.stringify(data));
         
         var html = weatherTemplate(data);
         $("#app").html(html);

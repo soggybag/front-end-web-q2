@@ -125,3 +125,25 @@ Mood board
 Resources -
 
 - https://designschool.canva.com
+
+
+# Ideas
+
+- Problem: Students should contribute to projects on Github. 
+- Solution: Make School apps. Apps based on class projects with a final public form. 
+    - Example: Weather App. 
+        - Students can contribute to the weather app. 
+        - Analytics for weather requests (Micro-Service architecture)
+    - Example: iOS UI Widgets 
+        - Create new widgets 
+        - Design widget presentation
+        - Improve existing widgets
+
+    
+
+
+
+
+
+
+

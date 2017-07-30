@@ -88,8 +88,8 @@ function loadData(city) {
         locationName.html(data.name);
         
         // Set background graient based on temp
-        // var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
-        // $("body").attr("style", backgroundCSS);
+        var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
+        $("body").attr("style", backgroundCSS);
     });
 }
 

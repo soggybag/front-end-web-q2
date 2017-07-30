@@ -137,8 +137,9 @@ function loadWeather(data) {
     showSavedCity();    
 
     // Set background graient based on temp
-    // var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
-    // $("body").attr("style", backgroundCSS);
+    // This is not working correctly at the moment!
+    var backgroundCSS = generateBackground(data.main.temp_min, data.main.temp_max, data.main.temp);
+    $("body").attr("style", backgroundCSS);
 
     // ***** Load five day forecast *****
     // Now that we have a location we can ask for a 5 day forecast.
@@ -408,7 +409,7 @@ function windSpeedIn(metersPersecond) {
 // https://gist.github.com/paulkaplan/5184275
 // From http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/
 // Start with a temperature, in Kelvin, somewhere between 1000 and 40000.  (Other values may work,
-//  but I can't make any promises about the quality of the algorithm's estimates above 40000 K.)
+// but I can't make any promises about the quality of the algorithm's estimates above 40000 K.)
 
 // Supposed to generate a color values for a temp in Kelvin
 // Returns an object with RGB propererties. 
@@ -460,9 +461,11 @@ function makeRGBACSSStr(rgb) {
 
 // Generate CSS string Gradient for three color values
 function generateBackground(minTemp, maxTemp, currentTemp) {
-    var minRGB = colorTemperatureToRGB(1) //Number(minTemp));
-    var midRGB = colorTemperatureToRGB(60) //currentTemp);
-    var maxRGB = colorTemperatureToRGB(1000) //maxTemp);
+    // This is not correct! Shouldn't have to increase values to get colors in range?
+    console.log(minTemp/4, maxTemp, currentTemp*4);
+    var minRGB = colorTemperatureToRGB(minTemp/100)     //Number(minTemp));
+    var midRGB = colorTemperatureToRGB(currentTemp)    //currentTemp);
+    var maxRGB = colorTemperatureToRGB(maxTemp*100)  //maxTemp);
 
     console.log(minRGB);
 
